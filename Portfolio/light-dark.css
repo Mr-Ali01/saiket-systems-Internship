@@ -1,0 +1,134 @@
+/* =========================================================
+   THEME VARIABLES — Luxury Beige
+   ========================================================= */
+
+/* 🌞 Light Mode */
+:root {
+  --bg-primary: #FCF9F5;
+  --bg-secondary: #F8F3EC;
+  --bg-sidebar: #FFFDF9;
+  --bg-card: #FFFFFF;
+  --bg-input: #FFFDFB;
+
+  --text-primary: #35281E;
+  --text-secondary: #6E5C4B;
+  --text-light: #A68F79;
+
+  --primary: #B67A35;
+  --secondary: #C89A63;
+  --accent: #E0B676;
+
+  --gradient-primary: linear-gradient(135deg, #B67A35 0%, #D5A05A 50%, #F2D2A2 100%);
+  --border-color: #E8DCCA;
+
+  --icon: #B67A35;
+  --icon-bg: #FFF4E7;
+
+  --shadow-card: 0 10px 30px rgba(182, 122, 53, 0.08);
+}
+
+/* 🌙 Dark Mode */
+html.dark {
+  --bg-primary: #17120F;
+  --bg-secondary: #211A16;
+  --bg-sidebar: #1A1512;
+  --bg-card: #241D18;
+  --bg-input: #2C241D;
+
+  --text-primary: #FFF7EC;
+  --text-secondary: #E6D6C4;
+  --text-light: #B79F87;
+
+  --primary: #D9A76B;
+  --secondary: #B67A35;
+  --accent: #F2D2A2;
+
+  --gradient-primary: linear-gradient(135deg, #B67A35 0%, #D9A76B 50%, #F2D2A2 100%);
+  --border-color: #3D3229;
+
+  --icon: #F2D2A2;
+  --icon-bg: #34291F;
+
+  --shadow-card: 0 15px 35px rgba(0, 0, 0, 0.55);
+}
+
+/* Base body transition */
+body {
+  background-color: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: 'Geist', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  letter-spacing: -0.02em; /* Geist looks best with a slightly tight tracking */
+}
+/* Monospace font class for badges, stats, dates, and code tags */
+.font-geist-mono {
+  font-family: 'Geist Mono', monospace !important;
+}
+/* Theme utility classes for key elements */
+.theme-bg-primary { background-color: var(--bg-primary) !important; }
+.theme-bg-secondary { background-color: var(--bg-secondary) !important; }
+.theme-bg-card { background-color: var(--bg-card) !important; }
+.theme-bg-sidebar { background-color: var(--bg-sidebar) !important; }
+.theme-bg-input { background-color: var(--bg-input) !important; }
+
+.theme-text-primary { color: var(--text-primary) !important; }
+.theme-text-secondary { color: var(--text-secondary) !important; }
+.theme-text-light { color: var(--text-light) !important; }
+
+.theme-border { border-color: var(--border-color) !important; }
+.theme-shadow { box-shadow: var(--shadow-card) !important; }
+
+.theme-icon-box {
+  color: var(--icon) !important;
+  background-color: var(--icon-bg) !important;
+}
+
+.theme-btn-primary {
+  background: var(--gradient-primary) !important;
+  color: #17120F !important;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.theme-text-gradient {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+/* Primary Luxury Button */
+.btn-primary {
+  background: var(--gradient-primary);
+  color: #17120F;
+  font-weight: 600;
+  transition: transform 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  opacity: 0.95;
+  box-shadow: 0 8px 20px rgba(182, 122, 53, 0.25);
+}
+
+/* =================================== scroll image section =====================*/
+/* Vertical infinite scroll effect for project preview images */
+@keyframes autoScrollVertical {
+  0% {
+    object-position: top;
+  }
+  50% {
+    object-position: bottom;
+  }
+  100% {
+    object-position: top;
+  }
+}
+
+.animate-scroll-image {
+  object-fit: cover;
+  object-position: top;
+  animation: autoScrollVertical 8s ease-in-out infinite;
+}
+
+/* Pause scrolling on hover so the user can inspect the image */
+.project-cards:hover .animate-scroll-image {
+  animation-play-state: paused;
+}

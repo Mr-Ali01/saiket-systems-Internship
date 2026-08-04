@@ -8,11 +8,11 @@ buttons.forEach((button)=>{
     button.addEventListener("click", (e)=>{
 
         buttons.forEach((btn)=>{
-        btn.classList.remove("bg-gradient-to-r","from-sky-500","to-sky-600","text-white");  
+        btn.classList.remove("theme-btn-primary");  
         })
         // console.log(this.dataset.filter);
         // console.log(e.currentTarget.dataset.filter);
-                e.currentTarget.classList.add("bg-gradient-to-r","from-sky-500","to-sky-600","text-white")
+                e.currentTarget.classList.add("theme-btn-primary")
         
         cards.forEach((card)=>{
             // console.log(card);

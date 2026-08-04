@@ -1,1065 +1,1098 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="scroll-smooth">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Samir Ali | Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-<style>
-    /* .left-panel{
-        width:400px;
-    height:300px;
-        background-image:url("img/job-img.png");
-
-    background-image:url("./images/bg.jpg");
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
-    } */
-</style>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <!-- Geist & Geist Mono Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&display=swap"
+        rel="stylesheet" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="light-dark.css" />
+    <!-- Theme Flash Prevention Script -->
+    <script>
+        if (
+            localStorage.getItem("theme") === "dark" ||
+            (!("theme" in localStorage) &&
+                window.matchMedia("(prefers-color-scheme: dark)").matches)
+        ) {
+            document.documentElement.classList.add("dark");
+        } else {
+            document.documentElement.classList.remove("dark");
+        }
+    </script>
 </head>
-<body class="bg-white text-slate-800 font-sans antialiased overflow-x-hidden selection:bg-sky-500 selection:text-white bg-linear-to-br from-[#F8F8F6] via-[#F4F4F2] to-[#F8F8F6]">
-    <nav class="sticky top-0 z-50 bg-amber-50 backdrop-blur-md  border-b border-slate-200 px-4 sm:px-8 lg:px-16 h-16 flex justify-between transition-all duration-300 items-center dark:bg-slate-950 dark:text-white">
-    <!-- ================= NAVIGATION BAR ================= -->
+
+<body
+    class="selection:bg-amber-600 text-slate-800 font-sans antialiased overflow-x-hidden selection:text-white theme-bg-primary theme-text-primary">
+    <nav
+        class="sticky top-0 z-50 backdrop-blur-md border-b theme-border px-4 sm:px-8 lg:px-16 h-16 flex justify-between transition-all duration-300 items-center theme-bg-primary">
+        <!-- ================= NAVIGATION BAR ================= -->
         <a href="#" class="flex items-center gap-3 group">
-            <div class="w-10 h-10 rounded-xl bg-sky-500 flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-sky-500/20 group-hover:scale-105 transition-transform duration-300 ">S</div>
-                <div class="flex flex-col">
-                    <h1 class="font-bold text-slate-900 dark:text-white text-sm sm:text-base leading-none">Samir Ali</h1>
-                    <h2 class="text-gray-500 font-medium text-[10px] sm:text-xs mt-0.6">Full Stack Developer</h2>
-                </div>
-            </a>
+            <div
+                class="w-10 h-10 rounded-xl theme-btn-primary flex items-center justify-center font-bold text-xl shadow-lg group-hover:scale-105 transition-transform duration-300">
+                S
+            </div>
+            <div class="flex flex-col">
+                <h1 class="font-bold theme-text-primary text-sm sm:text-base leading-none">
+                    Samir Ali
+                </h1>
+                <h2 class="theme-text-secondary font-medium text-[10px] sm:text-xs mt-0.6">
+                    Full Stack Developer
+                </h2>
+            </div>
+        </a>
         <!-- Desktop Links -->
-      
-            <ul class="hidden items-center gap-8 lg:flex">
+        <ul class="hidden items-center gap-8 lg:flex theme-text-secondary">
+            <li>
+                <a href="#home" class="font-medium hover:text-amber-600 transition">Home</a>
+            </li>
+            <li>
+                <a href="#projects" class="font-medium hover:text-amber-600 transition">Projects</a>
+            </li>
+            <li>
+                <a href="#skills" class="font-medium hover:text-amber-600 transition">Skills</a>
+            </li>
+            <li>
+                <a href="#experience" class="font-medium hover:text-amber-600 transition">Experience</a>
+            </li>
+            <li>
+                <a href="#education" class="font-medium hover:text-amber-600 transition">Education</a>
+            </li>
+            <li>
+                <a href="#contact" class="font-medium hover:text-amber-600 transition">Contact</a>
+            </li>
+            <li>
+                <a href="#resume.pdf" class="font-medium transition hover:text-amber-600">Resume</a>
+            </li>
+        </ul>
 
-                <li><a href="#home" class="font-medium hover:text-sky-500 transition">Home</a></li>
-
-                <li><a href="#projects" class="font-medium hover:text-sky-500 transition">Projects</a></li>
-
-                <li><a href="#skills" class="font-medium hover:text-sky-500 transition">Skills</a></li>
-
-                <li><a href="#experience" class="font-medium hover:text-sky-500 transition">Experience</a></li>
-
-                <li><a href="#education" class="font-medium hover:text-sky-500 transition">Education</a></li>
-
-                <li><a href="#contact" class="font-medium hover:text-sky-500 transition">Contact</a></li>
-
-                <li>
-
-                    <a href="#resume.pdf" class="font-medium transition hover:bg-sky-600">  Resume
-                    </a>
-
-                </li>
-
-            </ul>
-
-         <div class="flex items-center gap-3">
-            <!-- Theme -->
-            <button id="themeToggle" class=" flex items-center justify-center rounded-lg w-10 h-10 hover:bg-slate-100 dark:hover:bg-slate-800 transition cursor-pointer">
-                <svg class="h-5 w-5" fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        viewBox="0 0 24 24">
-
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3    7 7 0 0021 12.79z"/>
-
-                    </svg>
+        <div class="flex items-center gap-3">
+            <!-- Theme Toggle Button -->
+            <button id="themeToggle" aria-label="Toggle theme"
+                class="flex items-center justify-center rounded-lg w-10 h-10 theme-bg-card border theme-border transition cursor-pointer"></button>
+            <!-- Mobile Hamburger Button -->
+            <button id="menuBtn"
+                class="flex h-10 w-10 items-center justify-center lg:hidden rounded-lg theme-bg-card border theme-border transition">
+                ☰
             </button>
-            <!-- Hamburger -->
-            <button id="menuBtn" class="flex h-10 w-10 items-center justify-center  lg:hidden rounded-lg hover:bg-slate-100 transition dark:hover:bg-slate-800">☰</button>
-
-         </div>
+        </div>
     </nav>
 
     <!-- ================= MOBILE SIDEBAR ================= -->
-    <aside id="sidebar" class="block lg:hidden pl-5 fixed top-0 right-0 z-50 h-screen w-50 translate-x-full bg-white shadow-2xl transition-transform duration-300 ease-in-out dark:bg-slate-900">
-        <div class="flex items-center justify-between border-b border-slate-200 p-1 dark:border-slate-700">
-            <h2 class="dark:text-white text-slate-800">Menu</h2>
-           <button id="closeBtn" class="rounded-lg p-2 transition dark:hover:bg-slate-100 font-bold text-xl dark:text-white text-slate-800 hover:bg-slate-800">✕</button> 
+    <aside id="sidebar"
+        class="block lg:hidden pl-5 fixed top-0 right-0 z-50 h-screen w-50 translate-x-full theme-bg-sidebar shadow-2xl transition-transform duration-300 ease-in-out">
+        <div class="flex items-center justify-between border-b theme-border p-3">
+            <h2 class="theme-text-primary font-bold">Menu</h2>
+            <button id="closeBtn" class="rounded-lg p-2 transition font-bold text-xl theme-text-primary">
+                ✕
+            </button>
         </div>
-        <ul class="gap-2 flex flex-col">
-
-                <li><a href="#home" class="font-medium  dark:text-white text-slate-800 hover:text-sky-500 transition">Home</a></li>
-
-                <li><a href="#projects" class="font-medium dark:text-white text-slate-800 hover:text-sky-500 transition">Projects</a></li>
-
-                <li><a href="#skills" class="font-medium dark:text-white text-slate-800 hover:text-sky-500 transition">Skills</a></li>
-
-                <li><a href="#experience" class="font-medium dark:text-white text-slate-800 hover:text-sky-500 transition">Experience</a></li>
-
-                <li><a href="#education" class="font-medium dark:text-white text-slate-800 hover:text-sky-500 transition">Education</a></li>
-
-                <li><a href="#contact" class="font-medium dark:text-white text-slate-800 hover:text-sky-500 transition">Contact</a></li>
-
-                <li>
-
-                    <a href="#resume.pdf" class="font-medium dark:text-white text-slate-800 transition hover:bg-sky-600">  Resume
-                    </a>
-
-                </li>
-
-            </ul>
+        <ul class="gap-4 flex flex-col mt-4">
+            <li>
+                <a href="#home" class="font-medium theme-text-secondary hover:text-amber-600 transition">Home</a>
+            </li>
+            <li>
+                <a href="#projects"
+                    class="font-medium theme-text-secondary hover:text-amber-600 transition">Projects</a>
+            </li>
+            <li>
+                <a href="#skills" class="font-medium theme-text-secondary hover:text-amber-600 transition">Skills</a>
+            </li>
+            <li>
+                <a href="#experience"
+                    class="font-medium theme-text-secondary hover:text-amber-600 transition">Experience</a>
+            </li>
+            <li>
+                <a href="#education"
+                    class="font-medium theme-text-secondary hover:text-amber-600 transition">Education</a>
+            </li>
+            <li>
+                <a href="#contact" class="font-medium theme-text-secondary hover:text-amber-600 transition">Contact</a>
+            </li>
+            <li>
+                <a href="#resume.pdf"
+                    class="font-medium theme-text-secondary hover:text-amber-600 transition">Resume</a>
+            </li>
+        </ul>
     </aside>
-
-    <div class="relative min-h[calc(100vh-4rem)]  px-4 sm:px-8 lg:px-16 py-12 lg:py-0 flex flex-col-reverse lg:flex-row items-center justify-between gap-12 border-b border-slate-200 overflow-hidden">
-
-        <section id="hero-section" class=" mt-7 flex flex-col gap-6 w-full lg:max-w-2xl relative z-10 text-center lg:text-left items-center lg:items-start order-2 lg:order-1">
-
-            <div class="inline-flex items-center gap-2 text-sky-600 font-semibold rounded-full bg-sky-50 px-4 py-1.5 text-xs sm:text-sm shadow-sm border border-sky-100/50">
+    <!-- Hero Section ends here -->
+    <div
+        class="relative min-h[calc(100vh-4rem)] px-4 sm:px-8 lg:px-16 py-12 lg:py-5 flex flex-col lg:flex-row items-center justify-between gap-12 border-b theme-border overflow-hidden">
+        <section id="hero-section"
+            class="mt-7 flex flex-col gap-6 w-full lg:max-w-2xl relative z-10 text-center lg:text-left items-center lg:items-start order-2 lg:order-1">
+            <div
+                class="inline-flex items-center gap-2 theme-text-secondary font-semibold rounded-full theme-bg-card px-4 py-1.5 text-xs sm:text-sm border theme-border shadow-sm">
                 <span>👋</span> Hi, I'm Samir Ali
             </div>
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl text-slate-950 font-extrabold tracking-tight leading-none">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl theme-text-primary font-extrabold tracking-tight leading-none">
                 FullStack
-                <span class="text-transparent bg-clip-text bg-linear-to-r from-sky-500 to-indigo-600">Developer</span>
-                <span class="text-sky-500">.</span>
+                <span class="theme-text-gradient">Developer</span>.
             </h1>
-            <p class="text-slate-600 text-sm sm:text-base md:text-lg font-normal max-w-xl leading-relaxed">
-                Full Stack Developer building fast, beautiful, and purposeful web experiences
+            <p class="theme-text-secondary text-sm sm:text-base md:text-lg font-normal max-w-xl leading-relaxed">
+                Full Stack Developer building fast, beautiful, and purposeful web
+                experiences.
             </p>
             <div class="flex flex-wrap gap-4 justify-center lg:justify-start w-full mt-2">
-                <a href="#get-in-touch" class="text-white bg-linear-to-r from-sky-500 to-sky-600 hover:from-sky-600 hover:to-sky-700 px-6 py-3 rounded-xl font-semibold shadow-lg shadow-sky-500/20 hover:shadow-xl hover:translate-y-0.5 transition-all duration-300 text-sm sm:text-base">Get in Touch </a>
+                <a href="#contact"
+                    class="theme-btn-primary px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base">
+                    Get in Touch
+                </a>
 
-                <a href="#view-projects" class="border border-slate-300 bg-white hover:bg-slate-50 px-6 text-slate-700 font-semibold rounded-xl shadow-sm hover:-translate-y-0.5 transition-all duration-300 text-sm sm:text-base py-3">View Projects</a>
+                <a href="#projects"
+                    class="border theme-border theme-bg-card px-6 theme-text-primary font-semibold rounded-xl shadow-sm hover:-translate-y-0.5 transition-all duration-300 text-sm sm:text-base py-3">
+                    View Projects
+                </a>
 
-                <a href="#resume" class="border border-slate-300 bg-white hover:bg-slate-50 px-6 text-slate-700 font-semibold rounded-xl shadow-sm hover:-translate-y-0.5 transition-all duration-300 text-sm sm:text-base py-3">Resume</a>
+                <a href="#resume"
+                    class="border theme-border theme-bg-card px-6 theme-text-primary font-semibold rounded-xl shadow-sm hover:-translate-y-0.5 transition-all duration-300 text-sm sm:text-base py-3">
+                    Resume
+                </a>
             </div>
             <!-- Refined Stats Section: Explicit Gap & Padding -->
-                    <div class="flex flex-wrap items-center justify-center mt-1 border-t mb-3 border-theme-textPrimary/10 px-4"
-                        style="display: flex; column-gap: 64px; row-gap: 24px; border-top: none;">
-                        <div class="flex flex-col items-start">
-                            <div id="hero-stat-val-1"
-                                class="text-3xl md:text-3xl font-black text-theme-textPrimary tracking-tight">2+</div>
-                            <div id="hero-stat-lab-1"
-                                class="text-theme-textSecondary text-[10px] font-black uppercase tracking-[0.2em] mt-1 opacity-60 whitespace-nowrap">
-                                Years coding</div>
-                        </div>
-                        <div class="flex flex-col items-start">
-                            <div id="hero-stat-val-2"
-                                class="text-3xl md:text-3xl font-black text-theme-textPrimary tracking-tight">15+</div>
-                            <div id="hero-stat-lab-2"
-                                class="text-theme-textSecondary text-[10px] font-black uppercase tracking-[0.2em] mt-1 opacity-60 whitespace-nowrap">
-                                Projects built</div>
-                        </div>
-                        <div class="flex flex-col items-start">
-                            <div id="hero-stat-val-3"
-                                class="text-3xl md:text-3xl font-black text-theme-textPrimary tracking-tight">100%
-                            </div>
-                            <div id="hero-stat-lab-3"
-                                class="text-theme-textSecondary text-[10px] font-black uppercase tracking-[0.2em] mt-1 opacity-60 whitespace-nowrap">
-                                Passion driven</div>
-                        </div>
+            <!-- Stats Section -->
+            <div class="flex flex-wrap items-center justify-center gap-12 mt-4 pt-6 border-t theme-border px-4">
+                <div class="flex flex-col items-start">
+                    <div id="hero-stat-val-1" class="text-3xl md:text-3xl font-black theme-text-primary tracking-tight">
+                        2+
                     </div>
-                
-        </section>
-        <section id="hero-pic" class=" w-full lg:max-w-xl flex justify-center order-1 lg:order-2 relative select-none  perspective-[1000px]">
-
-           <div class="relative w-64 h-64 sm:w-80 lg:h-96 lg:w-96 rounded-3xl bg-linear-to-r from-sky-400/20 to-indigo500/20 animate-float p-6 flex items-center justify-center border border-white shadow-2xl backdrop-blur-xs transform-3d hover:transform-[rotateX(10deg)_rotateY(-10deg)] transition-transform duration-500">
-
-            <div class="absolute inset-4 rounded-2xl bg-slate-900/5 transform-[translateZ(20px)] border border-white/20 flex items-center justify-center backdrop-blur-md shadow-inner">
-                <img src="img/samir-hero.png" class="w-72 h-72 object-cover rounded-2xl transform-[translateZ(50px)]" alt="samir image">
-
+                    <div id="hero-stat-lab-1"
+                        class="theme-text-light text-[10px] font-black uppercase tracking-[0.2em] mt-1 opacity-80 whitespace-nowrap">
+                        Years coding
+                    </div>
+                </div>
+                <div class="flex flex-col items-start">
+                    <div id="hero-stat-val-2" class="text-3xl md:text-3xl font-black theme-text-primary tracking-tight">
+                        15+
+                    </div>
+                    <div id="hero-stat-lab-2"
+                        class="theme-text-light text-[10px] font-black uppercase tracking-[0.2em] mt-1 opacity-80 whitespace-nowrap">
+                        Projects built
+                    </div>
+                </div>
+                <div class="flex flex-col items-start">
+                    <div id="hero-stat-val-3" class="text-3xl md:text-3xl font-black theme-text-primary tracking-tight">
+                        100%
+                    </div>
+                    <div id="hero-stat-lab-3"
+                        class="theme-text-light text-[10px] font-black uppercase tracking-[0.2em] mt-1 opacity-80 whitespace-nowrap">
+                        Passion driven
+                    </div>
+                </div>
             </div>
-            <div class="absolute -top-4 -right-4 w-20 h-20 rounded-full bg-indigo-500/10 blur-xl animate-pulse"></div>
-
-           
-           <div class="absolute -bottom-6 -left-6 w-32 h-32 rounded-full bg-sky-500/10 blur-xl animate-pulse-slow"></div>
-          </div>
         </section>
 
+        <section id="hero-pic"
+            class="w-full lg:max-w-xl flex justify-center order-1 lg:order-2 relative select-none perspective-[1000px]">
+            <div
+                class="relative w-64 h-64 sm:w-80 lg:h-96 lg:w-96 rounded-3xl p-6 flex theme-bg-card items-center justify-center border theme-border theme-shadow backdrop-blur-xs animate-[spin_8s_linear_infinite] hover:[animation-play-state:paused] hover:shadow-[0_20px_50px_rgba(182,122,53,0.35)] transition-shadow duration-500 cursor-pointer group">
+                <div
+                    class="absolute inset-4 rounded-2xl bg-slate-900/5 border border-white/20 flex items-center justify-center backdrop-blur-md shadow-inner">
+                    <img src="img/samir-hero.png" class="w-72 h-72 object-cover rounded-2xl" alt="Samir Ali" />
+                </div>
+
+                <!-- Ambient Glow Elements -->
+                <div class="absolute -top-4 -right-4 w-20 h-20 rounded-full bg-amber-500/20 blur-xl animate-pulse">
+                </div>
+                <div class="absolute -bottom-6 -left-6 w-32 h-32 rounded-full bg-amber-600/20 blur-xl animate-pulse">
+                </div>
+            </div>
+        </section>
     </div>
 
     <!-- Hero Section ends here -->
+
+    <!-- About section start here -->
+    <section class="lg:px-16 sm:px-8 px-4 py-8 theme-bg-secondary border-b theme-border p-8 md:p-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <!-- Left Column: Info & Bio -->
+            <div class="lg:col-span-5 space-y-6">
+                <div>
+                    <h2 class="text-4xl font-bold theme-text-primary tracking-tight">
+                        About <span class="theme-text-gradient">Me</span>
+                    </h2>
+                    <div class="w-12 h-1 theme-btn-primary rounded-full mt-2"></div>
+                </div>
+
+                <p class="theme-text-secondary leading-relaxed text-sm md:text-base">
+                    I am a passionate and innovative developer dedicated to crafting
+                    immersive digital experiences. With a strong foundation in core web
+                    technologies, I build solutions that are fast, scalable, and
+                    user-focused.
+                </p>
+
+                <!-- Stats Grid -->
+                <div class="grid grid-cols-2 gap-4 pt-2">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 theme-icon-box rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="smile" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold theme-text-primary leading-none">
+                                2+
+                            </h3>
+                            <p class="text-xs theme-text-light mt-1">Years Experience</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 theme-icon-box rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="rocket" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold theme-text-primary leading-none">
+                                15+
+                            </h3>
+                            <p class="text-xs theme-text-light mt-1">Projects Completed</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Call to Action Button -->
+                <div class="pt-4">
+                    <a href="#contact"
+                        class="inline-flex items-center space-x-2 theme-btn-primary px-6 py-3 rounded-full shadow-md hover:shadow-lg transition-all duration-200 group">
+                        <span>Hire Me</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Column: Service Cards Grid -->
+            <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div class="theme-bg-card p-6 rounded-2xl border theme-border theme-shadow space-y-3">
+                    <div class="w-12 h-12 theme-icon-box rounded-xl flex items-center justify-center">
+                        <i data-lucide="database" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-bold theme-text-primary text-base">
+                        Full-Stack Development
+                    </h3>
+                    <p class="text-xs theme-text-secondary leading-relaxed">
+                        Custom scalable web applications.
+                    </p>
+                </div>
+
+                <div class="theme-bg-card p-6 rounded-2xl border theme-border theme-shadow space-y-3">
+                    <div class="w-12 h-12 theme-icon-box rounded-xl flex items-center justify-center">
+                        <i data-lucide="layers" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-bold theme-text-primary text-base">
+                        Custom Theme Websites
+                    </h3>
+                    <p class="text-xs theme-text-secondary leading-relaxed">
+                        Bespoke personalized website themes.
+                    </p>
+                </div>
+
+                <div class="theme-bg-card p-6 rounded-2xl border theme-border theme-shadow space-y-3">
+                    <div class="w-12 h-12 theme-icon-box rounded-xl flex items-center justify-center">
+                        <i data-lucide="file-code" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-bold theme-text-primary text-base">
+                        Static Website Development
+                    </h3>
+                    <p class="text-xs theme-text-secondary leading-relaxed">
+                        Fast, lightweight HTML sites.
+                    </p>
+                </div>
+
+                <div class="theme-bg-card p-6 rounded-2xl border theme-border theme-shadow space-y-3">
+                    <div class="w-12 h-12 theme-icon-box rounded-xl flex items-center justify-center">
+                        <i data-lucide="smartphone" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-bold theme-text-primary text-base">
+                        Responsive Web Design
+                    </h3>
+                    <p class="text-xs theme-text-secondary leading-relaxed">
+                        Flawless cross-device responsive performance.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Project section start from here -->
 
-    <div id="project-section" class="flex flex-col lg:px-16 sm:px-8 px-4 py-12 lg:py-0 my-6 bg-linear-to-br from-[#F8F8F6] via-[#F4F4F2] to-[#F8F8F6] gap-6">
-
+    <div id="project-section"
+        class="flex flex-col lg:px-16 sm:px-8 px-4 py-12 lg:py-4 pt-0 my-6 theme-bg-primary gap-6 border-b theme-border">
         <div id="project-title-section" class="flex gap-4 items-center">
-
-            <div class="w-14 h-14 rounded-2xl bg-sky-500 flex items-center justify-center shadow-lg">
-                <i class="fa-solid fa-layer-group text-white text-2xl"></i>
+            <div class="w-14 h-14 rounded-2xl theme-icon-box flex items-center justify-center shadow-lg">
+                <i class="fa-solid fa-layer-group text-2xl"></i>
             </div>
-            <h1 id="project-title" class="font-bold text-4xl">Projects</h1>
+            <h1 id="project-title" class="font-bold text-4xl theme-text-primary">
+                Projects
+            </h1>
         </div>
+
         <div id="project-filters" class="flex gap-3 px-2 flex-wrap">
-            <button data-filter="top-rated" class="btn-state cursor-pointer bg-linear-to-r from-sky-500 to-sky-600  p-2 text-center font-semibold font-serif text-sm rounded-xl">Top rated</button>
-            <button data-filter="website" class="btn-state cursor-pointer bg-white p-2 text-center font-semibold font-serif text-sm rounded-xl">Website</button>
-            <button data-filter="tools" class=" btn-state cursor-pointer bg-white p-2 text-center font-semibold font-serif text-sm rounded-xl">Tools</button>
-            <button data-filter="seo-pages" class="btn-state cursor-pointer bg-white p-2 text-center font-semibold font-serif text-sm rounded-xl">SEO Pages</button>
-            <button data-filter="mobiles" class="btn-state cursor-pointer bg-white p-2 text-center font-semibold font-serif text-sm rounded-xl">Mobiles</button>
-        </div>
-        <div id="project-card" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-5 justify-items-center justify-center"> <!-- we can use flex-wrap also place of grid-->
-            <!-- card-1 Website-->
-            <div id="card-1" data-category="website" data-top="true" class="project-cards w-80 h-105 border rounded-2xl flex flex-col gap-3 hover:-translate-y-3 duration-500 transition-all">
-            <div class=" relative h-50 overflow-hidden rounded-t-2xl">
-                <img src="img/portfolio.png" class=" w-full h-full object-cover" alt="">
-                <div class="absolute top-3 left-3 z-30 flex items-center justify-center gap-0.5 p-1 rounded-2xl bg-sky-400">
-                    <div class="w-2 h-2 rounded-full bg-white "></div> 
-                    <span class="text-black font-semibold text-[12px]">TOP RATED</span>
-                </div>
-            </div>
-            <div class="flex gap-2 items-center px-1">
-                <span class="bg-white text-black p-1 px-2 font-semibold text-[15px] rounded-sm font-sans">HTML</span>
-                <span class="bg-white text-black p-1 px-2 font-semibold text-[15px] rounded-sm font-sans">CSS</span>
-                <span class="bg-white text-black p-1 px-2 font-semibold text-[15px] rounded-sm font-sans">JavaScript</span>
-            </div>
-            <div class="px-2">
-                <h1 class="text-xl font-bold">Developer Portfolio System</h1>
-                <p class="text-[15px] text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui eaque blanditiis alias, modi voluptatum error!</p>
-            </div>
-            <div class="px-2 mt-2 flex gap-5 items-center justify-center">
-                <div>
-                <a class="p-2 font-bold text-xl border border-gray-400 rounded-xl bg-sky-400" href="#live">Live Demo</a>
-                </div>
-                <div>
-                <a class="p-2 font-bold text-xl border border-gray-400 rounded-xl bg-sky-400" href="#source-code">Source Code</a>
-                </div>
-            </div>
+            <button data-filter="top-rated"
+                class="btn-state cursor-pointer theme-btn-primary p-2 text-center font-semibold text-sm rounded-xl">
+                Top rated
+            </button>
+            <button data-filter="website"
+                class="btn-state cursor-pointer theme-bg-card border theme-border theme-text-primary p-2 text-center font-semibold text-sm rounded-xl">
+                Website
+            </button>
+            <button data-filter="tools"
+                class="btn-state cursor-pointer theme-bg-card border theme-border theme-text-primary p-2 text-center font-semibold text-sm rounded-xl">
+                Tools
+            </button>
+            <button data-filter="seo-pages"
+                class="btn-state cursor-pointer theme-bg-card border theme-border theme-text-primary p-2 text-center font-semibold text-sm rounded-xl">
+                SEO Pages
+            </button>
+            <button data-filter="mobiles"
+                class="btn-state cursor-pointer theme-bg-card border theme-border theme-text-primary p-2 text-center font-semibold text-sm rounded-xl">
+                Mobiles
+            </button>
         </div>
 
-        <!-- card2 -->
-                  <div id="card-1" data-category="tools" data-top="false" class="project-cards w-80 h-105 border rounded-2xl flex flex-col gap-3 hover:-translate-y-3 duration-500 transition-all">
-            <div class=" relative h-50 overflow-hidden rounded-t-2xl">
-                <img src="img/portfolio.png" class=" w-full h-full object-cover" alt="">
-                <div class="absolute top-3 left-3 z-30 flex items-center justify-center gap-0.5 p-1 rounded-2xl bg-sky-400">
-                    <div class="w-2 h-2 rounded-full bg-white "></div> 
-                    <span class="text-black font-semibold text-[12px]">TOP RATED</span>
-                </div>
-            </div>
-            <div class="flex gap-2 items-center px-1">
-                <span class="bg-white text-black p-1 px-2 font-semibold text-[15px] rounded-sm font-sans">HTML</span>
-                <span class="bg-white text-black p-1 px-2 font-semibold text-[15px] rounded-sm font-sans">CSS</span>
-                <span class="bg-white text-black p-1 px-2 font-semibold text-[15px] rounded-sm font-sans">JavaScript</span>
-            </div>
-            <div class="px-2">
-                <h1 class="text-xl font-bold">Developer Portfolio System</h1>
-                <p class="text-[15px] text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui eaque blanditiis alias, modi voluptatum error!</p>
-            </div>
-            <div class="px-2 mt-2 flex gap-5 items-center justify-center">
-                <div>
-                <a class="p-2 font-bold text-xl border border-gray-400 rounded-xl bg-sky-400" href="#live">Live Demo</a>
-                </div>
-                <div>
-                <a class="p-2 font-bold text-xl border border-gray-400 rounded-xl bg-sky-400" href="#source-code">Source Code</a>
-                </div>
+     <div id="project-card" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 justify-items-center justify-center">
+    <!-- Card 1 -->
+    <div id="card-1" data-category="website" data-top="true"
+        class="project-cards w-80 border theme-border theme-bg-card rounded-2xl flex flex-col gap-3 hover:-translate-y-2 duration-300 transition-all theme-shadow p-3">
+        <div class="relative h-48 overflow-hidden rounded-xl">
+            <!-- Updated class: animate-scroll-image -->
+            <img src="img/portfolio.png" class="w-full h-full animate-scroll-image" alt="Portfolio Project" />
+            <div class="absolute top-3 left-3 z-30 flex items-center justify-center gap-1.5 px-3 py-1 rounded-full theme-btn-primary">
+                <span class="w-2 h-2 rounded-full bg-stone-900"></span>
+                <span class="font-bold text-[10px] tracking-wider uppercase">TOP RATED</span>
             </div>
         </div>
-        <!-- card3 -->
-                  <div id="card-1" data-category="mobiles" data-top="true" class="project-cards w-80 h-105 border rounded-2xl flex flex-col gap-3 hover:-translate-y-3 duration-500 transition-all">
-            <div class=" relative h-50 overflow-hidden rounded-t-2xl">
-                <img src="img/portfolio.png" class=" w-full h-full object-cover" alt="">
-                <div class="absolute top-3 left-3 z-30 flex items-center justify-center gap-0.5 p-1 rounded-2xl bg-sky-400">
-                    <div class="w-2 h-2 rounded-full bg-white "></div> 
-                    <span class="text-black font-semibold text-[12px]">TOP RATED</span>
-                </div>
-            </div>
-            <div class="flex gap-2 items-center px-1">
-                <span class="bg-white text-black p-1 px-2 font-semibold text-[15px] rounded-sm font-sans">HTML</span>
-                <span class="bg-white text-black p-1 px-2 font-semibold text-[15px] rounded-sm font-sans">CSS</span>
-                <span class="bg-white text-black p-1 px-2 font-semibold text-[15px] rounded-sm font-sans">JavaScript</span>
-            </div>
-            <div class="px-2">
-                <h1 class="text-xl font-bold">Developer Portfolio System</h1>
-                <p class="text-[15px] text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui eaque blanditiis alias, modi voluptatum error!</p>
-            </div>
-            <div class="px-2 mt-2 flex gap-5 items-center justify-center">
-                <div>
-                <a class="p-2 font-bold text-xl border border-gray-400 rounded-xl bg-sky-400" href="#live">Live Demo</a>
-                </div>
-                <div>
-                <a class="p-2 font-bold text-xl border border-gray-400 rounded-xl bg-sky-400" href="#source-code">Source Code</a>
-                </div>
+        <div class="flex gap-2 items-center px-1">
+            <span class="theme-bg-secondary theme-text-primary p-1 px-2 font-semibold text-[13px] rounded border theme-border">HTML</span>
+            <span class="theme-bg-secondary theme-text-primary p-1 px-2 font-semibold text-[13px] rounded border theme-border">CSS</span>
+            <span class="theme-bg-secondary theme-text-primary p-1 px-2 font-semibold text-[13px] rounded border theme-border">JavaScript</span>
+        </div>
+        <div class="px-1">
+            <h1 class="text-lg font-bold theme-text-primary">Developer Portfolio System</h1>
+            <p class="text-xs theme-text-secondary mt-1 leading-relaxed">
+                Responsive portfolio built with custom Luxury Beige design variables and smooth theme switching.
+            </p>
+        </div>
+        <div class="px-1 mt-2 flex gap-3 items-center justify-center">
+            <a class="flex-1 text-center py-2 font-semibold text-xs border theme-border rounded-xl theme-btn-primary" href="#live">Live Demo</a>
+            <a class="flex-1 text-center py-2 font-semibold text-xs border theme-border rounded-xl theme-bg-secondary theme-text-primary" href="#source-code">Source Code</a>
+        </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div id="card-2" data-category="tools" data-top="false"
+        class="project-cards w-80 border theme-border theme-bg-card rounded-2xl flex flex-col gap-3 hover:-translate-y-2 duration-300 transition-all theme-shadow p-3">
+        <div class="relative h-48 overflow-hidden rounded-xl">
+            <!-- Updated class: animate-scroll-image -->
+            <img src="img/portfolio.png" class="w-full h-full animate-scroll-image" alt="Tools Project" />
+        </div>
+        <div class="flex gap-2 items-center px-1">
+            <span class="theme-bg-secondary theme-text-primary p-1 px-2 font-semibold text-[13px] rounded border theme-border">HTML</span>
+            <span class="theme-bg-secondary theme-text-primary p-1 px-2 font-semibold text-[13px] rounded border theme-border">CSS</span>
+            <span class="theme-bg-secondary theme-text-primary p-1 px-2 font-semibold text-[13px] rounded border theme-border">JavaScript</span>
+        </div>
+        <div class="px-1">
+            <h1 class="text-lg font-bold theme-text-primary">Developer Portfolio System</h1>
+            <p class="text-xs theme-text-secondary mt-1 leading-relaxed">
+                Custom utility platform configured for modular components and responsive layouts.
+            </p>
+        </div>
+        <div class="px-1 mt-2 flex gap-3 items-center justify-center">
+            <a class="flex-1 text-center py-2 font-semibold text-xs border theme-border rounded-xl theme-btn-primary" href="#live">Live Demo</a>
+            <a class="flex-1 text-center py-2 font-semibold text-xs border theme-border rounded-xl theme-bg-secondary theme-text-primary" href="#source-code">Source Code</a>
+        </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div id="card-3" data-category="mobiles" data-top="true"
+        class="project-cards w-80 border theme-border theme-bg-card rounded-2xl flex flex-col gap-3 hover:-translate-y-2 duration-300 transition-all theme-shadow p-3">
+        <div class="relative h-48 overflow-hidden rounded-xl">
+            <!-- Updated class: animate-scroll-image -->
+            <img src="img/prime-local1.png" class="w-full h-full animate-scroll-image" alt="Mobile Web App" />
+            <div class="absolute top-3 left-3 z-30 flex items-center justify-center gap-1.5 px-3 py-1 rounded-full theme-btn-primary">
+                <span class="w-2 h-2 rounded-full bg-stone-900"></span>
+                <span class="font-bold text-[10px] tracking-wider uppercase">TOP RATED</span>
             </div>
         </div>
+        <div class="flex gap-2 items-center px-1">
+            <span class="theme-bg-secondary theme-text-primary p-1 px-2 font-semibold text-[13px] rounded border theme-border">HTML</span>
+            <span class="theme-bg-secondary theme-text-primary p-1 px-2 font-semibold text-[13px] rounded border theme-border">CSS</span>
+            <span class="theme-bg-secondary theme-text-primary p-1 px-2 font-semibold text-[13px] rounded border theme-border">JavaScript</span>
         </div>
+        <div class="px-1">
+            <h1 class="text-lg font-bold theme-text-primary">Developer Portfolio System</h1>
+            <p class="text-xs theme-text-secondary mt-1 leading-relaxed">
+                Mobile-optimized layout interface featuring touch-friendly gestures and responsive sidebar routing.
+            </p>
+        </div>
+        <div class="px-1 mt-2 flex gap-3 items-center justify-center">
+            <a class="flex-1 text-center py-2 font-semibold text-xs border theme-border rounded-xl theme-btn-primary" href="#live">Live Demo</a>
+            <a class="flex-1 text-center py-2 font-semibold text-xs border theme-border rounded-xl theme-bg-secondary theme-text-primary" href="#source-code">Source Code</a>
+        </div>
+    </div>
+</div>
     </div>
 
     <!-- project section end here -->
- <!-- Experience Section start here -->
-<!-- ====================================== -->
-<!-- Experience Section -->
-<!-- ====================================== -->
 
-<section id="experience" class="py-12 lg:py-0 sm:px-6 lg:px-16 px-4 bg-gradient-to- from-[#F8F8F6] via-[#F4F4F2] to-[#F8F8F6]">
+    <!-- ====================================== -->
+    <!-- Experience Section start here -->
+    <!-- ====================================== -->
 
-    <div class="max-w-6xl mx-auto">
-
-        <!-- ================= Heading ================= -->
-
-        <div class="flex items-center gap-5 mb-14">
-
-            <div
-                class="w-14 h-14 rounded-2xl bg-sky-500 flex items-center justify-center shadow-lg">
-
-                <i class="fa-solid fa-briefcase text-2xl text-white"></i>
-
-            </div>
-
-            <div>
-
-                <h2 class="text-4xl font-bold text-gray-900">
-                    Experience
-                </h2>
-
-                <!-- <p class="mt-2 text-gray-500">
-                    Building products and gaining practical industry experience.
-                </p> -->
-
-            </div>
-
-        </div>
-
-        <!-- ================= Timeline ================= -->
-
-        <div class="relative">
-            <!-- Vertical Line -->
-            <div class=" hidden sm:block absolute left-6 top-0 bottom-0 w-0.75 bg-sky-200">
-            </div>
-
-            <!-- ========================================= -->
-            <!-- Experience 1 -->
-            <!-- ========================================= -->
-
-            <div class="relative pb-8">
-
-                <!-- Timeline Dot -->
-
-                <div class=" hidden sm:block absolute left-3.5  w-6 h-6 rounded-full bg-sky-500  border-4 border-white ring-4 ring-sky-100 z-20">
+    <section id="experience" class="py-12 sm:px-6 lg:px-16 px-4 theme-bg-secondary border-b theme-border">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex items-center gap-5 mb-14">
+                <div class="w-14 h-14 rounded-2xl theme-icon-box flex items-center justify-center shadow-lg">
+                    <i class="fa-solid fa-briefcase text-2xl"></i>
                 </div>
-                <!-- Card -->
-                <article class="sm:ml-20 rounded-2xl border border-gray-200 bg-white p-7 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+                <div>
+                    <h2 class="text-4xl font-bold theme-text-primary">Experience</h2>
+                </div>
+            </div>
 
-                    <!-- Header -->
+            <div class="relative">
+                <div class="hidden sm:block absolute left-6 top-0 bottom-0 w-0.5 theme-bg-card border-l theme-border">
+                </div>
 
-                    <div class="flex justify-between gap-4">
+                <div class="relative pb-8">
+                    <div
+                        class="hidden sm:block absolute left-4 w-5 h-5 rounded-full theme-btn-primary border-2 theme-border z-20">
+                    </div>
 
-                        <div class="flex gap-4">
-
-                            <div class="w-12 h-12 rounded-xl bg-sky-500 flex items-center justify-center">
-
-                                <i class="fa-solid fa-code text-white"></i>
-
+                    <article
+                        class="sm:ml-20 rounded-2xl border theme-border theme-bg-card p-7 theme-shadow transition-all duration-300 hover:-translate-y-1">
+                        <div class="flex flex-col sm:flex-row justify-between gap-4">
+                            <div class="flex gap-4">
+                                <div
+                                    class="w-12 h-12 rounded-xl theme-icon-box flex items-center justify-center flex-shrink-0">
+                                    <i class="fa-solid fa-code"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold theme-text-primary">
+                                        Web Development Intern
+                                    </h3>
+                                    <p class="font-medium theme-text-gradient">Business Labs</p>
+                                </div>
                             </div>
-
-                            <div>
-
-                                <h3 class="text-xl font-bold text-gray-900">
-                                    Web Development Intern
-                                </h3>
-
-                                <p class="font-medium text-sky-600">
-                                    Business Labs
-                                </p>
-
-                            </div>
-
+                            <span
+                                class="theme-bg-secondary px-3 py-1 h-fit rounded-xl text-xs font-semibold theme-text-secondary border theme-border">
+                                Internship
+                            </span>
                         </div>
-                        <p class="bg-amber-100 h-8 text-center p-1 rounded-xl text-sm text-sky-400">
-                            Internship
+
+                        <div class="mt-4 flex items-center gap-2 text-sm theme-text-light">
+                            <i class="fa-regular fa-calendar"></i>
+                            <span>Nov 2025 – Mar 2026</span>
+                        </div>
+
+                        <ul class="mt-4 ml-6 list-disc space-y-2 text-sm theme-text-secondary leading-relaxed">
+                            <li>
+                                Developed responsive websites using HTML, CSS, JavaScript, and
+                                Tailwind CSS.
+                            </li>
+                            <li>Built reusable UI components and optimized performance.</li>
+                            <li>
+                                Collaborated with developers to deliver responsive interfaces.
+                            </li>
+                        </ul>
+                    </article>
+                </div>
+                <!-- ========================================= -->
+                <!-- Experience 2 -->
+                <!-- ========================================= -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience section Ends here -->
+    <!-- Technical Skills Start from here -->
+    <section id="skills" class="lg:px-16 sm:px-8 px-4 py-12 flex flex-col gap-8 theme-bg-primary border-b theme-border">
+        <div class="flex gap-4 items-center">
+            <div class="w-14 h-14 rounded-2xl theme-icon-box flex items-center justify-center shadow-lg">
+                <i class="fa-solid fa-layer-group text-2xl"></i>
+            </div>
+            <h1 class="font-bold text-4xl theme-text-primary">Technical Skills</h1>
+        </div>
+
+        <!-- Frontend -->
+        <div class="container flex gap-5 flex-row items-center px-3">
+            <div class="flex flex-col gap-3 flex-1">
+                <div class="flex items-center gap-3">
+                    <div class="flex w-10 h-10 rounded-full theme-icon-box items-center justify-center">
+                        <i class="fa-solid fa-code text-lg"></i>
+                    </div>
+                    <h2 class="theme-text-primary text-xl font-bold">
+                        Frontend Development
+                    </h2>
+                    <span class="flex-1 h-px theme-bg-card border-b theme-border"></span>
+                </div>
+                <div class="flex flex-wrap gap-5 pl-3 items-center">
+                    <div class="skill-card flex flex-col items-center gap-2">
+                        <div
+                            class="w-12 h-12 rounded-2xl theme-bg-card border theme-border flex items-center justify-center hover:-translate-y-1 transition theme-shadow">
+                            <i class="fa-brands fa-html5 text-3xl text-orange-500"></i>
+                        </div>
+                        <p class="theme-text-secondary text-[11px] font-semibold">
+                            HTML5
                         </p>
-
                     </div>
 
-                    <!-- Date -->
-
-                    <div class="mt-5 flex items-center gap-2 text-sm text-gray-500">
-
-                        <i class="fa-regular fa-calendar"></i>
-
-                        <span>Nov 2025 – Mar 2026</span>
-
+                    <div class="skill-card flex flex-col items-center gap-2">
+                        <div
+                            class="w-12 h-12 rounded-2xl theme-bg-card border theme-border flex items-center justify-center hover:-translate-y-1 transition theme-shadow">
+                            <i class="fa-brands fa-css3-alt text-3xl text-sky-500"></i>
+                        </div>
+                        <p class="theme-text-secondary text-[11px] font-semibold">CSS3</p>
                     </div>
 
-                    <!-- Points -->
+                    <div class="skill-card flex flex-col items-center gap-2">
+                        <div
+                            class="w-12 h-12 rounded-2xl theme-bg-card border theme-border flex items-center justify-center hover:-translate-y-1 transition theme-shadow">
+                            <i class="fa-brands fa-js text-3xl text-yellow-400"></i>
+                        </div>
+                        <p class="theme-text-secondary text-[11px] font-semibold">
+                            JavaScript
+                        </p>
+                    </div>
 
-                    <ul
-                        class="mt-5 ml-6 list-disc space-y-2 text-gray-600">
+                    <div class="skill-card flex flex-col items-center gap-2">
+                        <div
+                            class="w-12 h-12 rounded-2xl theme-bg-card border theme-border flex items-center justify-center hover:-translate-y-1 transition theme-shadow">
+                            <i class="fa-brands fa-react text-3xl text-cyan-400"></i>
+                        </div>
+                        <p class="theme-text-secondary text-[11px] font-semibold">
+                            React
+                        </p>
+                    </div>
 
-                        <li>Developed responsive websites using HTML, CSS, JavaScript and Tailwind CSS.</li>
-
-                        <li>Built reusable UI components and optimized performance.</li>
-
-                        <li>Collaborated with developers to deliver responsive interfaces.</li>
-
-                    </ul>
-
-                </article>
-
+                    <div class="skill-card flex flex-col items-center gap-2">
+                        <div
+                            class="w-12 h-12 rounded-2xl theme-bg-card border theme-border flex items-center justify-center hover:-translate-y-1 transition theme-shadow">
+                            <img src="https://cdn.simpleicons.org/tailwindcss/06B6D4" alt="Tailwind CSS"
+                                class="w-7 h-7" />
+                        </div>
+                        <p class="theme-text-secondary text-[11px] font-semibold">
+                            Tailwind CSS
+                        </p>
+                    </div>
+                </div>
             </div>
-
-            <!-- ========================================= -->
-            <!-- Experience 2 -->
-            <!-- ========================================= -->
-
-            
-
         </div>
 
-    </div>
-
-</section>
-
-<!-- Experience section Ends here -->
- <!-- Technical Skills Start from here -->
-  <section id="technical skills" class="lg:px-16 sm:px-8 px-4 py-12 flex flex-col gap-7 ">
-    <div class="flex gap-3 items-center">
-        <div class="w-14 h-14 rounded-2xl bg-sky-500 flex items-center justify-center shadow-lg">
-                <i class="fa-solid fa-layer-group text-white text-2xl"></i>
-            </div>
-            <h1 class="font-bold text-4xl">Technical Skills</h1>
-    </div>
-    <div id="top-skills-category" class="container flex gap-5 flex-row items-center px-3">
-        <div class="hidden sm:flex w-20 h-20 rounded-full border bg-sky-500 border-sky-500 items-center justify-center"><i class="fa-solid fa-code  text-white text-4xl font-bold"></i>
-        </div>
-        <!-- <div class="w-28 h-28 bg-[#0D1326] border border-violet-500 flex items-center justify-center"
-    style="clip-path: polygon( 25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);">
-
-    <i class="fa-solid fa-code text-violet-400 text-5xl"></i>
-
-</div> -->
-        <!-- <div id="line" class="w-0.5 h-17 bg-sky-400 "></div> -->
-        <div id="skill-category" class="flex flex-col gap-2 flex-1">
-
-            <div id="category-title" class="flex items-center gap-2">
-
-                <div class="sm:hidden flex w-10 h-10 rounded-full border bg-sky-500 border-sky-500 items-center justify-center"><i class="fa-solid fa-code  text-white text-xl font-bold"></i>
+        <!-- Backend -->
+        <div class="container flex gap-5 flex-row items-center px-3">
+            <div class="flex flex-col gap-3 flex-1">
+                <div class="flex items-center gap-3">
+                    <div class="flex w-10 h-10 rounded-full theme-icon-box items-center justify-center">
+                        <i class="fa-solid fa-server text-lg"></i>
+                    </div>
+                    <h2 class="theme-text-primary text-xl font-bold">
+                        Backend Development
+                    </h2>
+                    <span class="flex-1 h-px theme-bg-card border-b theme-border"></span>
                 </div>
-                <h1 class="text-black text-xl font-bold">Frontend Development</h1>
-                <span class="flex-1 h-px bg-linear-to-r from-sky-500 to-indigo-600"></span>
-                
-            </div>
-            <div id="skill-cards" class="flex flex-wrap gap-5 pl-3 items-center ">
-            
-                <div class="skill-card flex flex-col items-center gap-2">
-                    <!-- Icon -->
-                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#141B33] to-[#0B1020] border border-violet-500/30 flex items-center justify-center transition duration-300 hover:-translate-y-2 hover:border-violet-500">
-                <i class="fa-brands fa-html5 text-3xl text-orange-500"></i>
+                <div class="flex flex-wrap gap-5 pl-3">
+                    <div class="skill-card flex flex-col items-center gap-2">
+                        <div
+                            class="w-12 h-12 rounded-2xl theme-bg-card border theme-border flex items-center justify-center hover:-translate-y-1 transition theme-shadow">
+                            <i class="fa-brands fa-java text-red-500 text-3xl"></i>
+                        </div>
+                        <p class="theme-text-secondary text-[11px] font-semibold">Java</p>
+                    </div>
+
+                    <div class="skill-card flex flex-col items-center gap-2">
+                        <div
+                            class="w-12 h-12 rounded-2xl theme-bg-card border theme-border flex items-center justify-center hover:-translate-y-1 transition theme-shadow">
+                            <i class="fa-brands fa-php text-indigo-400 text-3xl"></i>
+                        </div>
+                        <p class="theme-text-secondary text-[11px] font-semibold">PHP</p>
+                    </div>
+
+                    <div class="skill-card flex flex-col items-center gap-2">
+                        <div
+                            class="w-12 h-12 rounded-2xl theme-bg-card border theme-border flex items-center justify-center hover:-translate-y-1 transition theme-shadow">
+                            <i class="fa-solid fa-database text-sky-400 text-3xl"></i>
+                        </div>
+                        <p class="theme-text-secondary text-[11px] font-semibold">
+                            MySQL
+                        </p>
+                    </div>
+
+                    <div class="skill-card flex flex-col items-center gap-2">
+                        <div
+                            class="w-12 h-12 rounded-2xl theme-bg-card border theme-border flex items-center justify-center hover:-translate-y-1 transition theme-shadow">
+                            <i class="fa-solid fa-plug text-amber-500 text-3xl"></i>
+                        </div>
+                        <p class="theme-text-secondary text-[11px] font-semibold">
+                            REST API
+                        </p>
+                    </div>
                 </div>
-                    <!-- Name -->
-                <p class="text-black text-[10px] font-semibold">HTML5</p>
-                </div>
-
-                            <!-- skills2 -->
-                     <div class="skill-card flex flex-col items-center gap-2">
-    <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#141B33] to-[#0B1020] border border-violet-500/30 flex items-center justify-center transition duration-300 hover:-translate-y-2 hover:border-violet-500">
-        <i class="fa-brands fa-css3-alt text-3xl text-sky-500"></i>
-    </div>
-
-    <p class="text-black text-[10px] font-semibold">CSS3</p>
-</div>
-                    <!-- skills3 -->
-                     <div class="skill-card flex flex-col items-center gap-2">
-    <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#141B33] to-[#0B1020] border border-violet-500/30 flex items-center justify-center transition duration-300 hover:-translate-y-2 hover:border-violet-500">
-        <i class="fa-brands fa-js text-3xl text-yellow-400"></i>
-    </div>
-
-    <p class="text-black text-[10px] font-semibold">JavaScript</p>
-</div>
-                    <!-- skills4 -->
-                     <div class="skill-card flex flex-col items-center gap-2">
-    <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#141B33] to-[#0B1020] border border-violet-500/30 flex items-center justify-center transition duration-300 hover:-translate-y-2 hover:border-violet-500">
-        <i class="fa-brands fa-react text-3xl text-cyan-400"></i>
-    </div>
-
-    <p class="text-black text-[10px] font-semibold">React</p>
-</div>
-                    <!-- skills5 -->
-                     <div class="skill-card flex flex-col items-center gap-2">
-    <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#141B33] to-[#0B1020] border border-violet-500/30 flex items-center justify-center transition duration-300 hover:-translate-y-2 hover:border-violet-500">
-
-        <img
-            src="https://cdn.simpleicons.org/tailwindcss/06B6D4"
-            alt="Tailwind CSS"
-            class="w-7 h-7">
-
-    </div>
-
-    <p class="text-black text-[10px] font-semibold">Tailwind CSS</p>
-</div>
-                    <!-- skills2 -->
-             
-        </div>
-        </div>
-    </div>
-
-    <!-- backend category -->
-     <div id="top-skills-category" class="container flex gap-5 flex-row items-center px-3">
-
-    <!-- Left Icon -->
-    <div class="hidden sm:flex w-20 h-20 rounded-full bg-emerald-500 items-center justify-center">
-        <i class="fa-solid fa-server text-white text-4xl"></i>
-    </div>
-
-    <!-- Right -->
-    <div id="skill-category" class="flex flex-col gap-2 flex-1">
-
-        <div id="category-title" class="flex items-center gap-2">
-
-            <div class="sm:hidden flex w-10 h-10 rounded-full bg-emerald-500 items-center justify-center">
-                <i class="fa-solid fa-server text-white text-xl"></i>
             </div>
-
-            <h2 class="text-xl font-bold">
-                Backend Development
-            </h2>
-
-            <span class="flex-1 h-px bg-gradient-to-r from-emerald-500 to-teal-600"></span>
-
         </div>
 
-        <div class="flex flex-wrap gap-5 pl-3">
-
-            <!-- Java -->
-            <div class="skill-card flex flex-col items-center gap-2">
-                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#141B33] to-[#0B1020] border border-emerald-500/30 flex items-center justify-center hover:-translate-y-2 transition">
-                    <i class="fa-brands fa-java text-red-500 text-3xl"></i>
+        <!-- Frameworks -->
+        <div class="container flex gap-5 flex-row items-center px-3">
+            <div class="flex flex-col gap-3 flex-1">
+                <div class="flex items-center gap-3">
+                    <div class="flex w-10 h-10 rounded-full theme-icon-box items-center justify-center">
+                        <i class="fa-solid fa-cubes text-lg"></i>
+                    </div>
+                    <h2 class="theme-text-primary text-xl font-bold">Frameworks</h2>
+                    <span class="flex-1 h-px theme-bg-card border-b theme-border"></span>
                 </div>
-                <p class="text-[10px] font-semibold">Java</p>
-            </div>
+                <div class="flex flex-wrap gap-5 pl-3">
+                    <div class="skill-card flex flex-col items-center gap-2">
+                        <div
+                            class="w-12 h-12 rounded-2xl theme-bg-card border theme-border flex items-center justify-center hover:-translate-y-1 transition theme-shadow">
+                            <i class="fa-brands fa-bootstrap text-purple-500 text-3xl"></i>
+                        </div>
+                        <p class="theme-text-secondary text-[11px] font-semibold">
+                            Bootstrap
+                        </p>
+                    </div>
 
-            <!-- PHP -->
-            <div class="skill-card flex flex-col items-center gap-2">
-                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#141B33] to-[#0B1020] border border-emerald-500/30 flex items-center justify-center hover:-translate-y-2 transition">
-                    <i class="fa-brands fa-php text-indigo-400 text-3xl"></i>
+                    <div class="skill-card flex flex-col items-center gap-2">
+                        <div
+                            class="w-12 h-12 rounded-2xl theme-bg-card border theme-border flex items-center justify-center hover:-translate-y-1 transition theme-shadow">
+                            <img src="https://cdn.simpleicons.org/spring/6DB33F" class="w-7 h-7" alt="Spring" />
+                        </div>
+                        <p class="theme-text-secondary text-[11px] font-semibold">
+                            Spring
+                        </p>
+                    </div>
+
+                    <div class="skill-card flex flex-col items-center gap-2">
+                        <div
+                            class="w-12 h-12 rounded-2xl theme-bg-card border theme-border flex items-center justify-center hover:-translate-y-1 transition theme-shadow">
+                            <img src="https://cdn.simpleicons.org/hibernate/59666C" class="w-7 h-7" alt="Hibernate" />
+                        </div>
+                        <p class="theme-text-secondary text-[11px] font-semibold">
+                            Hibernate
+                        </p>
+                    </div>
+
+                    <div class="skill-card flex flex-col items-center gap-2">
+                        <div
+                            class="w-12 h-12 rounded-2xl theme-bg-card border theme-border flex items-center justify-center hover:-translate-y-1 transition theme-shadow">
+                            <i class="fa-solid fa-layer-group text-amber-500 text-3xl"></i>
+                        </div>
+                        <p class="theme-text-secondary text-[11px] font-semibold">JPA</p>
+                    </div>
                 </div>
-                <p class="text-[10px] font-semibold">PHP</p>
             </div>
-
-            <!-- MySQL -->
-            <div class="skill-card flex flex-col items-center gap-2">
-                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#141B33] to-[#0B1020] border border-emerald-500/30 flex items-center justify-center hover:-translate-y-2 transition">
-                    <i class="fa-solid fa-database text-sky-400 text-3xl"></i>
-                </div>
-                <p class="text-[10px] font-semibold">MySQL</p>
-            </div>
-
-            <!-- REST API -->
-            <div class="skill-card flex flex-col items-center gap-2">
-                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#141B33] to-[#0B1020] border border-emerald-500/30 flex items-center justify-center hover:-translate-y-2 transition">
-                    <i class="fa-solid fa-plug text-green-400 text-3xl"></i>
-                </div>
-                <p class="text-[10px] font-semibold">REST API</p>
-            </div>
-
         </div>
 
-    </div>
+        <!-- Tools & Others -->
+        <div class="container flex gap-5 flex-row items-center px-3">
+            <div class="flex flex-col gap-3 flex-1">
+                <div class="flex items-center gap-3">
+                    <div class="flex w-10 h-10 rounded-full theme-icon-box items-center justify-center">
+                        <i class="fa-solid fa-screwdriver-wrench text-lg"></i>
+                    </div>
+                    <h2 class="theme-text-primary text-xl font-bold">Tools & Others</h2>
+                    <span class="flex-1 h-px theme-bg-card border-b theme-border"></span>
+                </div>
+                <div class="flex flex-wrap gap-5 pl-3">
+                    <div class="skill-card flex flex-col items-center gap-2">
+                        <div
+                            class="w-12 h-12 rounded-2xl theme-bg-card border theme-border flex items-center justify-center hover:-translate-y-1 transition theme-shadow">
+                            <i class="fa-brands fa-git-alt text-orange-500 text-3xl"></i>
+                        </div>
+                        <p class="theme-text-secondary text-[11px] font-semibold">Git</p>
+                    </div>
 
-</div>
+                    <div class="skill-card flex flex-col items-center gap-2">
+                        <div
+                            class="w-12 h-12 rounded-2xl theme-bg-card border theme-border flex items-center justify-center hover:-translate-y-1 transition theme-shadow">
+                            <i class="fa-brands fa-github theme-text-primary text-3xl"></i>
+                        </div>
+                        <p class="theme-text-secondary text-[11px] font-semibold">
+                            GitHub
+                        </p>
+                    </div>
 
-<!-- Frameworks category -->
- <div id="top-skills-category" class="container flex gap-5 flex-row items-center px-3">
+                    <div class="skill-card flex flex-col items-center gap-2">
+                        <div
+                            class="w-12 h-12 rounded-2xl theme-bg-card border theme-border flex items-center justify-center hover:-translate-y-1 transition theme-shadow">
+                            <img src="https://cdn.simpleicons.org/visualstudiocode/007ACC" class="w-7 h-7"
+                                alt="VS Code" />
+                        </div>
+                        <p class="theme-text-secondary text-[11px] font-semibold">
+                            VS Code
+                        </p>
+                    </div>
 
-    <div class="hidden sm:flex w-20 h-20 rounded-full bg-violet-500 items-center justify-center">
-        <i class="fa-solid fa-cubes text-white text-4xl"></i>
-    </div>
-
-    <div id="skill-category" class="flex flex-col gap-2 flex-1">
-
-        <div class="flex items-center gap-2">
-
-            <div class="sm:hidden flex w-10 h-10 rounded-full bg-violet-500 items-center justify-center">
-                <i class="fa-solid fa-cubes text-white text-xl"></i>
+                    <div class="skill-card flex flex-col items-center gap-2">
+                        <div
+                            class="w-12 h-12 rounded-2xl theme-bg-card border theme-border flex items-center justify-center hover:-translate-y-1 transition theme-shadow">
+                            <i class="fa-brands fa-figma text-pink-500 text-3xl"></i>
+                        </div>
+                        <p class="theme-text-secondary text-[11px] font-semibold">
+                            Figma
+                        </p>
+                    </div>
+                </div>
             </div>
-
-            <h2 class="text-xl font-bold">
-                Frameworks
-            </h2>
-
-            <span class="flex-1 h-px bg-gradient-to-r from-violet-500 to-fuchsia-500"></span>
-
         </div>
+    </section>
 
-        <div class="flex flex-wrap gap-5 pl-3">
-
-            <!-- Bootstrap -->
-            <div class="skill-card flex flex-col items-center gap-2">
-                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#141B33] to-[#0B1020] border border-violet-500/30 flex items-center justify-center">
-                    <i class="fa-brands fa-bootstrap text-purple-500 text-3xl"></i>
-                </div>
-                <p class="text-[10px] font-semibold">Bootstrap</p>
+    <!-- Education Section Start here -->
+    <section id="education"
+        class="lg:px-16 sm:px-8 px-4 py-12 flex flex-col gap-7 theme-bg-secondary border-b theme-border">
+        <div class="flex gap-3 items-center">
+            <div
+                class="sm:w-14 sm:h-14 p-2 sm:p-0 rounded-2xl theme-icon-box flex items-center justify-center shadow-lg">
+                <i class="fa-solid fa-graduation-cap text-2xl"></i>
             </div>
-
-            <!-- Spring -->
-            <div class="skill-card flex flex-col items-center gap-2">
-                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#141B33] to-[#0B1020] border border-violet-500/30 flex items-center justify-center">
-                    <img src="https://cdn.simpleicons.org/spring/6DB33F" class="w-7 h-7">
-                </div>
-                <p class="text-[10px] font-semibold">Spring</p>
-            </div>
-
-            <!-- Hibernate -->
-            <div class="skill-card flex flex-col items-center gap-2">
-                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#141B33] to-[#0B1020] border border-violet-500/30 flex items-center justify-center">
-                    <img src="https://cdn.simpleicons.org/hibernate/59666C" class="w-7 h-7">
-                </div>
-                <p class="text-[10px] font-semibold">Hibernate</p>
-            </div>
-
-            <!-- JPA -->
-            <div class="skill-card flex flex-col items-center gap-2">
-                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#141B33] to-[#0B1020] border border-violet-500/30 flex items-center justify-center">
-                    <i class="fa-solid fa-layer-group text-orange-400 text-3xl"></i>
-                </div>
-                <p class="text-[10px] font-semibold">JPA</p>
-            </div>
-
+            <h1 class="font-bold text-2xl sm:text-3xl lg:text-4xl theme-text-primary">
+                Education & Certification
+            </h1>
         </div>
-
-    </div>
-
-</div>
-
-<!-- Other category -->
- <div id="top-skills-category" class="container flex gap-5 flex-row items-center px-3">
-
-    <div class="hidden sm:flex w-20 h-20 rounded-full bg-orange-500 items-center justify-center">
-        <i class="fa-solid fa-screwdriver-wrench text-white text-4xl"></i>
-    </div>
-
-    <div id="skill-category" class="flex flex-col gap-2 flex-1">
-
-        <div class="flex items-center gap-2">
-
-            <div class="sm:hidden flex w-10 h-10 rounded-full bg-orange-500 items-center justify-center">
-                <i class="fa-solid fa-screwdriver-wrench text-white text-xl"></i>
-            </div>
-
-            <h2 class="text-xl font-bold">
-                Tools & Others
-            </h2>
-
-            <span class="flex-1 h-px bg-gradient-to-r from-orange-500 to-red-500"></span>
-
-        </div>
-
-        <div class="flex flex-wrap gap-5 pl-3">
-
-            <!-- Git -->
-            <div class="skill-card flex flex-col items-center gap-2">
-                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#141B33] to-[#0B1020] border border-orange-500/30 flex items-center justify-center">
-                    <i class="fa-brands fa-git-alt text-orange-500 text-3xl"></i>
+        <div class="acaddmic-certification flex flex-col lg:flex-row gap-5 flex-1">
+            <!-- ================================================= -->
+            <!-- Eaducation left card -->
+            <!-- ================================================ -->
+            <div id="education-cartd">
+                <div class="flex gap-3 items-center">
+                    <div class="w-10 h-10 rounded-2xl theme-icon-box flex items-center justify-center shadow-lg">
+                        <i class="fa-solid fa-certificate text-xl"></i>
+                    </div>
+                    <h2 class="font-bold theme-text-primary text-2xl">
+                        Academic Journey
+                    </h2>
                 </div>
-                <p class="text-[10px] font-semibold">Git</p>
-            </div>
-
-            <!-- GitHub -->
-            <div class="skill-card flex flex-col items-center gap-2">
-                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#141B33] to-[#0B1020] border border-orange-500/30 flex items-center justify-center">
-                    <i class="fa-brands fa-github text-white text-3xl"></i>
-                </div>
-                <p class="text-[10px] font-semibold">GitHub</p>
-            </div>
-
-            <!-- VS Code -->
-            <div class="skill-card flex flex-col items-center gap-2">
-                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#141B33] to-[#0B1020] border border-orange-500/30 flex items-center justify-center">
-                    <img src="https://cdn.simpleicons.org/visualstudiocode/007ACC" class="w-7 h-7">
-                </div>
-                <p class="text-[10px] font-semibold">VS Code</p>
-            </div>
-
-            <!-- Figma -->
-            <div class="skill-card flex flex-col items-center gap-2">
-                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#141B33] to-[#0B1020] border border-orange-500/30 flex items-center justify-center">
-                    <i class="fa-brands fa-figma text-pink-500 text-3xl"></i>
-                </div>
-                <p class="text-[10px] font-semibold">Figma</p>
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-  </section>
-  <!-- Technical skills End here -->
-  <!-- Education Section Start here -->
-
-  <section id="Education-section" class="lg:px-16 sm:px-8 px-4 py-5 flex flex-col gap-7 ">
-    <div class="flex gap-3 items-center">
-        <div class="sm:w-14 sm:h-14 p-2 sm:p-0 rounded-2xl bg-sky-500 flex items-center justify-center shadow-lg">
-            <i class="fa-solid fa-graduation-cap text-white text-2xl"></i>
-        </div>
-        <h1 class="font-bold text-[18px] sm:text-3xl lg:text-4xl">Education & Certification</h1>
-    </div>
-    <div class="acaddmic-certification flex flex-col lg:flex-row gap-5 flex-1">
-        <div id="education-cartd">
-            <div class="flex gap-3 items-center"> 
-                <div class="w-10 h-10 rounded-2xl bg-sky-300 flex items-center justify-center shadow-lg">
-                <i class="fa-solid fa-certificate text-white text-xl"></i>
-                </div>
-                <h2 class="font-bold text-2xl">Academic Journey</h2>
-            </div>
-            <div class="relative mt-5">
-        <!-- ================= Timeline ================= -->
-                <!-- Vertical Line -->
-                <div class="hidden sm:block absolute left-6 top-0 bottom-0 w-0.5 bg-sky-200"></div>
+                <div class="relative mt-5">
+                    <!-- ================= Timeline ================= -->
+                    <!-- Vertical Line -->
+                    <div class="hidden sm:block absolute left-6 top-0 bottom-0 w-0.5 theme-btn-primary"></div>
                     <!-- ========================================= -->
                     <!-- Experience 1 -->
                     <!-- ========================================= -->
-                <div id="cards-container" class="pt-3 relative">
+                    <div id="cards-container" class="relative">
+                        <!-- Timeline dot -->
 
-                    <!-- Timeline dot -->
-
-                    <div class="hidden sm:block absolute left-3.5 w-6 h-6 rounded-full bg-sky-500 border-4 border-white ring ring-sky-100 z-20"></div>
-                    <!-- card -->
-                    <article class="flex items-start justify-start gap-2 sm:ml-20 ">
-            <!--in the above: bg-white rounded-2xl border border-gray-200 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl -->
-
-                        <div class="flex items-center">
-                            <div class="w-7 h-7 rounded-2xl bg-sky-400 flex items-center justify-center shadow-lg">
-                            <i class="fa-solid fa-certificate text-white text-xl"></i>
-                                
-                            </div>
+                        <div
+                            class="hidden sm:block absolute left-3.5 w-6 h-6 rounded-full theme-btn-primary border-4 border-white ring ring-sky-100 z-20">
                         </div>
-                        <div class="card-details">
-                            <span class="font-bold text-[22px]">Master of Computer Appications (MCA)</span>
-                            <h3 class="text-sky-400 font-medium">Osmania University, Hyderabad</h3>
-                                <div class=" flex items-center gap-2 text-sm text-gray-500">
-                                    <i class="fa-regular fa-calendar text-sky-500"></i>
-                                    <span class="text-[12px] font-medium">Nov 2025 – Mar 2027</span>
+                        <!-- card -->
+                        <article class="flex items-start justify-start gap-2 sm:ml-20">
+                            
+                            <div class="card-details">
+                                <h3 class="font-bold text-xl theme-text-primary">
+                                    Master of Computer Applications (MCA)
+                                </h3>
+                                <p class="theme-text-gradient font-semibold text-sm">
+                                    Osmania University, Hyderabad
+                                </p>
+                                <div class="flex items-center gap-2 text-xs theme-text-light">
+                                    <i class="fa-regular fa-calendar"></i>
+                                    <span>Nov 2025 – Mar 2027</span>
                                 </div>
-                            <div class=" flex items-center gap-2 text-sm text-gray-500">
-                                    <i class="fa-solid fa-location-dot text-sky-500"></i>
+                                <div class="flex items-center gap-2 text-xs theme-text-light">
+                                    <i class="fa-solid fa-location-dot"></i>
                                     <span>Pursuing</span>
                                 </div>
-                        </div>
-                    </article>
-                </div>
-                 <!-- ========================================= -->
-            <!-- Edaucation 2 -->
-            <!-- ========================================= -->
-                             <div id="cards-container" class=" relative pb-8">
-
-                    <!-- Timeline dot -->
-
-                    <div class="hidden sm:block absolute left-3.5 w-6 h-6 rounded-full bg-sky-500 border-4 border-white ring ring-sky-100 z-20"></div>
-                    <!-- card -->
-                    <article class="flex items-start gap-2 sm:ml-20 p-2 ">
-            <!--in the above: bg-white rounded-2xl border border-gray-200 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl -->
-
-                        <div class="flex items-center">
-                            <div class="w-7 h-7 rounded-2xl bg-sky-400 flex items-center justify-center shadow-lg">
-                            <i class="fa-solid fa-certificate text-white text-xl"></i>
-                                
                             </div>
+                        </article>
+                    </div>
+                    <!-- ========================================= -->
+                    <!-- Edaucation 2 -->
+                    <!-- ========================================= -->
+                    <div id="cards-container" class="relative pb-8 mt-3">
+                        <!-- Timeline dot -->
+
+                        <div
+                            class="hidden sm:block absolute left-3.5 w-6 h-6 rounded-full theme-btn-primary border-4 border-white ring ring-sky-100 z-20">
                         </div>
-                        <div class="card-details">
-                            <h2 class="font-bold text-[22px]">Bachelor of Computer Appications (BCA)</h2>
-                            <h3 class="text-sky-400 font-medium">Osmania University, Hyderabad</h3>
-                                <div class=" flex items-center gap-2 text-sm text-gray-500">
-                                    <i class="fa-regular fa-calendar text-sky-500"></i>
-                                    <span class="text-[12px] font-medium">Oct 2022 – May 2025</span>
+                        <!-- card -->
+                        <article class="flex items-start gap-2 sm:ml-20 p-2">
+
+                            <div class="card-details">
+                                <h3 class="font-bold text-xl theme-text-primary">
+                                    Bachelor of Computer Applications (BCA)
+                                </h3>
+                                <p class="theme-text-gradient font-semibold text-sm">
+                                    Osmania University, Hyderabad
+                                </p>
+                                <div class="flex items-center gap-2 text-xs theme-text-light">
+                                    <i class="fa-regular fa-calendar"></i>
+                                    <span>Oct 2022 – Jul 2025</span>
                                 </div>
-                            <div class=" flex items-center gap-2 text-sm text-gray-500">
-                                    <i class="fa-solid fa-location-dot text-sky-500"></i>
+                                <div class="flex items-center gap-2 text-xs theme-text-light">
+                                    <i class="fa-solid fa-location-dot"></i>
                                     <span>Completed</span>
                                 </div>
-                        </div>
-                    </article>
+                            </div>
+                        </article>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- ================================================= -->
-        <!-- Certification second card -->
-         <!-- ================================================ -->
-          <div id="certification-card">
-            <div class="flex gap-3 items-center"> 
-                <div class="w-10 h-10 rounded-2xl bg-sky-300 flex items-center justify-center shadow-lg">
-                <i class="fa-solid fa-certificate text-white text-xl"></i>
+            <!-- ================================================= -->
+            <!-- Certification right card -->
+            <!-- ================================================ -->
+            <div id="certification-card">
+                <div class="flex gap-3 items-center">
+                    <div class="w-10 h-10 rounded-2xl theme-icon-box flex items-center justify-center shadow-lg">
+                        <i class="fa-solid fa-certificate text-xl"></i>
+                    </div>
+                    <h2 class="font-bold theme-text-primary text-2xl">Technical Certification</h2>
                 </div>
-                <h2 class="font-bold text-2xl">Technical Certification</h2>
-            
-            </div>
-             <div class="relative mt-5">
-        <!-- ================= Timeline ================= -->
-                <!-- Vertical Line -->
-                <div class="hidden sm:block absolute left-6 top-0 bottom-0 w-0.5 bg-sky-200"></div>
+                <div class="relative mt-5">
+                    <!-- ================= Timeline ================= -->
+                    <!-- Vertical Line -->
+                    <div class="hidden sm:block absolute left-6 top-0 bottom-0 w-0.5 theme-btn-primary"></div>
                     <!-- ========================================= -->
                     <!-- Experience 1 -->
                     <!-- ========================================= -->
-                <div id="cards-container" class="pb-3 relative">
+                    <div id="cards-container" class="pb-3 relative">
+                        <!-- Timeline dot -->
 
-                    <!-- Timeline dot -->
-
-                    <div class="hidden sm:block absolute left-3.5 w-6 h-6 rounded-full bg-sky-500 border-4 border-white ring ring-sky-100 z-20"></div>
-                    <!-- card -->
-                    <article class="flex items-start gap-2 sm:ml-20 p-2 ">
-            <!--in the above: bg-white rounded-2xl border border-gray-200 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl -->
-
-                        <div class="flex items-center">
-                            <div class="w-7 h-7 rounded-2xl bg-sky-400 flex items-center justify-center shadow-lg">
-                            <i class="fa-solid fa-certificate text-white text-xl"></i>
-                                
+                        <div class="hidden sm:block absolute left-3.5 w-6 h-6 rounded-full theme-btn-primary border-4 border-white ring ring-sky-100 z-20">
+                        </div>
+                        <!-- card -->
+                        <article class="flex items-start gap-2 sm:ml-20 p-2">
+                          
+                            <div class="card-details">
+                               <h3 class="font-bold text-xl theme-text-primary">Full Stack Java Development</h3>
+                        <p class="theme-text-gradient font-semibold text-sm">JSpiders Training Institute</p>
+                        <div class="flex items-center gap-2 text-xs theme-text-light">
+                            <i class="fa-regular fa-calendar"></i>
+                            <span>May 2025 – May 2026</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-xs theme-text-light">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>Completed</span>
+                        </div>
                             </div>
+                        </article>
+                    </div>
+                    <!-- ========================================= -->
+                    <!-- Edaucation 2 -->
+                    <!-- ========================================= -->
+                    <div id="cards-container" class="relative pb-8">
+                        <!-- Timeline dot -->
+
+                        <div
+                            class="hidden sm:block absolute left-3.5 w-6 h-6 rounded-full theme-btn-primary border-4 border-white ring ring-sky-100 z-20">
                         </div>
-                        <div class="card-details">
-                            <h2 class="font-bold text-[22px]">Full Stack Java Development</h2>
-                            <h3 class="text-sky-400 font-medium">JSpiders Training Institute</h3>
-                                <div class=" flex items-center gap-2 text-sm text-gray-500">
-                                    <i class="fa-regular fa-calendar text-sky-500"></i>
-                                    <span class="text-[12px] font-medium">May 2025 – May 2026</span>
-                                </div>
-                            <div class=" flex items-center gap-2 text-sm text-gray-500">
-                                    <i class="fa-solid fa-location-dot text-sky-500"></i>
-                                    <span>Completed</span>
-                                </div>
+                        <!-- card -->
+                        <article class="flex items-start gap-2 sm:ml-20 p-2">
+                           
+                            <div class="card-details">
+                                 <h3 class="font-bold text-xl theme-text-primary">Web Development Bootcamp</h3>
+                        <p class="theme-text-gradient font-semibold text-sm">Udemy</p>
+                        <div class="flex items-center gap-2 text-xs theme-text-light">
+                            <i class="fa-regular fa-calendar"></i>
+                            <span>Jan 2026 – Jul 2026</span>
                         </div>
-                    </article>
-                </div>
-                 <!-- ========================================= -->
-            <!-- Edaucation 2 -->
-            <!-- ========================================= -->
-                             <div id="cards-container" class=" relative pb-8">
-
-                    <!-- Timeline dot -->
-
-                    <div class="hidden sm:block absolute left-3.5 w-6 h-6 rounded-full bg-sky-500 border-4 border-white ring ring-sky-100 z-20"></div>
-                    <!-- card -->
-                    <article class="flex items-start gap-2 sm:ml-20 p-2 ">
-            <!--in the above: bg-white rounded-2xl border border-gray-200 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl -->
-
-                        <div class="flex items-center">
-                            <div class="w-7 h-7 rounded-2xl bg-sky-400 flex items-center justify-center shadow-lg">
-                            <i class="fa-solid fa-certificate text-white text-xl"></i>
-                                
+                        <div class="flex items-center gap-2 text-xs theme-text-light">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>Completed</span>
+                        </div>
                             </div>
-                        </div>
-                        <div class="card-details">
-                            <h2 class="font-bold text-[22px]">Web Development Bootcamp</h2>
-                            <h3 class="text-sky-400 font-medium">Udemy</h3>
-                                <div class=" flex items-center gap-2 text-sm text-gray-500">
-                                    <i class="fa-regular fa-calendar text-sky-500"></i>
-                                    <span class="text-[12px] font-medium">Jan 2026 – Jul 2026</span>
-                                </div>
-                            <div class=" flex items-center gap-2 text-sm text-gray-500">
-                                    <i class="fa-solid fa-location-dot text-sky-500"></i>
-                                    <span>Completed</span>
-                                </div>
-                        </div>
-                    </article>
+                        </article>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-  </section>
-  <!-- Education Section End here -->
+    </section>
 
-  <!-- Contact Section Start here -->
+    <!-- Contact Section start here -->
 
-  <section id="contact" class="lg:px-16 sm:px-8 px-4 py-5 flex flex-col gap-6">
-    <div class="flex items-center gap-2">
-        <div class="sm:w-14 sm:h-14 sm:p-0 p-2 rounded-2xl bg-sky-500 flex items-center justify-center shadow-lg">
-            <i class="fa-solid fa-paper-plane text-white text-2xl"></i>
+     <section id="contact" class="lg:px-16 sm:px-8 px-4 py-12 flex flex-col gap-6 theme-bg-primary border-b theme-border">
+        <div class="flex items-center gap-3">
+            <div class="w-12 h-12 rounded-2xl theme-icon-box flex items-center justify-center shadow-lg">
+                <i class="fa-solid fa-paper-plane text-2xl"></i>
+            </div>
+            <h1 class="font-bold text-2xl sm:text-3xl lg:text-4xl theme-text-primary">Contact</h1>
         </div>
-        <h1 class="font-bold text-xl sm:text-2xl lg:text-4xl">Contact</h1>
-    </div>
-    <!-- <div class="contact-details flex items-center justify-center gap-4 lg:gap-20"> -->
+
         <div class="contact-details grid lg:grid-cols-2 gap-8 items-stretch">
-        <div class="contact-left-card border p-3">
-            <div class="contact-title-details">
-                <div class="contact-title flex gap-2 flex-col">
-                    <div class=" flex items-center gap-2">
-                        <div class="sm:w-10 sm:h-10 sm:p-0 p-2 rounded-2xl bg-sky-500 flex items-center justify-center shadow-lg">
-                        <i class="fa-solid fa-rocket text-white text-2xl"></i>
+            <!-- Left Contact Info Card -->
+            <div class="contact-left-card border theme-border theme-bg-card p-8 rounded-3xl theme-shadow flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-xl theme-icon-box flex items-center justify-center">
+                            <i class="fa-solid fa-rocket text-lg"></i>
+                        </div>
+                        <span class="font-bold text-xl theme-text-primary">Let's Connect</span>
                     </div>
-                    <span>Let's Connect</span>
-                    </div>
-                    <p class="w-100">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad doloribus eaque error natus distinctioquidem laudantium minus!</p>
-                </div>
-                <div class="contact-card-icon relative">
-                    <!-- Vertical Line -->
-                        <div class="hidden sm:block absolute left-5 top-4 bottom-1 w-0.5 bg-sky-400"></div>
-                        <div class="relative pt-3 flex flex-col gap-3">
-                    
-                            <div class="flex gap-3 items-center">
-                                <div class="w-10 h-10 rounded-full bg-sky-500 flex items-center justify-center shadow-lg">
-                                <i class="fa-regular fa-envelope text-white text-xl"></i>
-                                </div>
-                                <div>
-                                    <h3 class="text-lg font-semibold">Email</h3>
-                                    <p class="text-gray-500 text-sm">samirali@example.com</p>
-                                </div>
+                    <p class="theme-text-secondary text-sm leading-relaxed mb-8">
+                        Have a project in mind, an opportunity to discuss, or just want to say hello? Send a message and let's work together.
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="flex gap-4 items-center">
+                            <div class="w-10 h-10 rounded-full theme-icon-box flex items-center justify-center">
+                                <i class="fa-regular fa-envelope text-lg"></i>
                             </div>
-                            <!-- second - icon -->
-                            <div class="flex gap-3 items-center">
-                                <div class="w-10 h-10 rounded-full bg-sky-500 flex items-center justify-center shadow-lg">
-                                <i class="fa-solid fa-phone text-white text-xl"></i>
-                                </div>
-                                <div>
-                                    <h3 class="text-lg font-semibold">Phone</h3>
-                                    <p class="text-gray-500 text-sm">+91 98765 43210</p>
-                                </div>
+                            <div>
+                                <h3 class="text-sm font-semibold theme-text-primary">Email</h3>
+                                <p class="theme-text-secondary text-xs">samirali@example.com</p>
                             </div>
-                            <!-- Third - icon -->
-                             <div class="flex items-center gap-3">
-
-                        <div class="w-10 h-10 rounded-full bg-red-500 flex items-center justify-center shadow-lg">
-                            <i class="fa-solid fa-location-dot text-white text-xl"></i>
                         </div>
 
-                        <div>
-                            <h3 class="text-lg font-semibold">Location</h3>
-                            <p class="text-gray-500 text-sm">Hyderabad, Telangana, India</p>
+                        <div class="flex gap-4 items-center">
+                            <div class="w-10 h-10 rounded-full theme-icon-box flex items-center justify-center">
+                                <i class="fa-solid fa-phone text-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-sm font-semibold theme-text-primary">Phone</h3>
+                                <p class="theme-text-secondary text-xs">+91 98765 43210</p>
+                            </div>
                         </div>
 
-                    </div>
-                            <!-- Fourth - icon -->
-                            <div class="flex items-center gap-3">
-
-                    <div class="w-10 h-10 rounded-full bg-[#0A66C2] flex items-center justify-center shadow-lg">
-                        <i class="fa-brands fa-linkedin-in text-white text-xl"></i>
-                    </div>
-
-                    <div>
-                        <h3 class="text-lg font-semibold">LinkedIn</h3>
-                        <p class="text-gray-500 text-sm">linkedin.com/in/samirali</p>
-                    </div>
-
-                </div>
-                            <!-- Fiv - icon -->
-            <div class="flex items-center gap-3">
-
-                <div class="w-10 h-10 rounded-xl bg-gray-900 flex items-center justify-center shadow-lg">
-                    <i class="fa-brands fa-github text-white text-xl"></i>
-                </div>
-
-                <div>
-                    <h3 class="text-lg font-semibold">GitHub</h3>
-                    <p class="text-gray-500 text-sm">github.com/samirali</p>
-                </div>
-
-            </div>
-
+                        <div class="flex gap-4 items-center">
+                            <div class="w-10 h-10 rounded-full theme-icon-box flex items-center justify-center">
+                                <i class="fa-solid fa-location-dot text-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-sm font-semibold theme-text-primary">Location</h3>
+                                <p class="theme-text-secondary text-xs">Hyderabad, Telangana, India</p>
+                            </div>
                         </div>
-                </div>
-            </div>
-        </div>
-        <div class="contact-right-card p-3 border gap-3">
-            <div class="form-heading flex flex-col gap-2">
-                <h1 class="font-bold text-2xl">Send Me a Message</h1>
-                <span class="w-20 h-0.5  bg-amber-400"></span>
-            </div>
-            <form action="" class="flex flex-col gap-4 mt-4">
-                <div>
-                    <input type="text" placeholder="Your Name" class="border border-gray-400 rounded-sm h-10 pl-1.5">
-                    <input type="email" placeholder="Enter Your Email" class="border border-gray-400 rounded-sm h-10 pl-1.5">
-                </div>
-                <select name="" id="" class="h-10 text-gray-400 rounded-sm pl-1.5 border border-gray-400">
-                    <option value="subject1">option1</option>
-                    <option value="subject2">option2</option> 
-                    <option value="subject3">option3</option>
-                    <option value="subject4">option4</option>
-                    <option value="subject4">option5</option>
-                </select>
-                <textarea name="" id="" class="bg-gray-300 h-40 pl-1.5 pt-1.5 border border-gray-400 rounded-sm" placeholder="Your Message"></textarea>
-                <button class="flex gap-2 bg-sky-500 justify-center items-center rounded-xl py-1">
-                    
-                    <i class="fa-solid fa-paper-plane text-white text-xl"></i>
-                    
-                    <span class="font-bold text-xl text-white ">Send Message</span>
-            </button>
-            </form>
-
-        </div>
-    </div>
-  </section>
-  <!-- Footer Section Start here -->
-   <footer class="lg:px-16 sm:px-8 px-4 py-5 flex flex-col gap-5 ">
-    <div id="footer-details" class="grid grid-cols-1 lg:grid-cols-5 sm:grid-cols-2 gap-1">
-        <div class="footer-name-card-1 ">
-            <div class="footer-title flex flex-col gap-1">
-                <div class="footer-heading flex gap-2">
-                    <div class="footer-style-name text-4xl text-amber-300 font-bold">SA</div>
-                    <div class="footer-name flex flex-col">
-                        <span class="font-bold text-2xl text-gray-600">Samir Ali</span>
-                        <span class="font-bold text-[12px] text-gray-600">Full stack Java Developer</span>
                     </div>
                 </div>
-                <div>
-                    <span class="font-semibold font-sans text-gray-400 text-[12px]">Lorem ipsum dolor, sit amet consectetur adipisicing elit. necessitatibus, eum doloremque quas aspernatur?</span>
-                </div>
             </div>
-        </div>
-        <!-- card-2 start from here -->
-        <div class="quickLink-card2">
-            <div class="quikLink-title">
-                <h1 class="text-xl font-bold mb-2">Quick Links</h1>
-            </div>
-            <ul class="flex flex-col gap-2">
-                <li class="flex items-center gap-2 font-semibold text-[13px]"><i class="fa-solid fa-chevron-right text-xs text-sky-500"></i><a href="#">Home</a></li>
-                <li class="flex items-center gap-2 font-semibold text-[13px]"><i class="fa-solid fa-chevron-right text-xs text-sky-500"></i><a href="#">About</a></li>
-                <li class="flex items-center gap-2 font-semibold text-[13px]"><i class="fa-solid fa-chevron-right text-xs text-sky-500"></i><a href="#">Skills</a></li>
-                <li class="flex items-center gap-2 font-semibold text-[13px]"><i class="fa-solid fa-chevron-right text-xs text-sky-500"></i><a href="#">Projects</a></li>
-                <li class="flex items-center gap-2 font-semibold text-[13px]"><i class="fa-solid fa-chevron-right text-xs text-sky-500"></i><a href="#">Experience</a></li>
-                <li class="flex items-center gap-2 font-semibold text-[13px]"><i class="fa-solid fa-chevron-right text-xs text-sky-500"></i><a href="#">Contact</a></li>
-            </ul>
-        </div>
-        <!-- card-3 start from here -->
-                 <div class="services-card-3">
-            <div class="services-title">
-                <h1 class="text-xl font-bold mb-2">Services</h1>
-            </div>
-            <ul class="flex flex-col gap-2">
-                <li class="flex items-center gap-2 font-semibold text-[13px]"><i class="fa-solid fa-chevron-right text-xs text-sky-500"></i><a href="#">Web Development</a></li>
-                <li class="flex items-center gap-2 font-semibold text-[13px]"><i class="fa-solid fa-chevron-right text-xs text-sky-500"></i><a href="#">Backend Development</a></li>
-                <li class="flex items-center gap-2 font-semibold text-[13px]"><i class="fa-solid fa-chevron-right text-xs text-sky-500"></i><a href="#">Java Development</a></li>
-                <li class="flex items-center gap-2 font-semibold text-[13px]"><i class="fa-solid fa-chevron-right text-xs text-sky-500"></i><a href="#">Database Design</a></li>
-                <li class="flex items-center gap-2 font-semibold text-[13px]"><i class="fa-solid fa-chevron-right text-xs text-sky-500"></i><a href="#">API Integretion</a></li>
-                <li class="flex items-center gap-2 font-semibold text-[13px]"><i class="fa-solid fa-chevron-right text-xs text-sky-500"></i><a href="#">Maintainance & Support</a></li>
-            </ul>
-        </div>
-        <!-- card4 start from here -->
-                <div class="contact-card-4">
-            <div class="contact-title">
-                <h1 class="text-xl font-bold mb-2">Get in Touch</h1>
-            </div>
-            <ul class="flex flex-col gap-2">
-                <li class="flex items-center gap-2 font-semibold text-[13px]"><i class="fa-solid fa-chevron-right text-xs text-sky-500"></i><a href="#">samir23@gmail.com</a></li>
-                <li class="flex items-center gap-2 font-semibold text-[13px]"><i class="fa-solid fa-chevron-right text-xs text-sky-500"></i><a href="#">+91 76584 93456</a></li>
-                <li class="flex items-center gap-2 font-semibold text-[13px]"><i class="fa-solid fa-chevron-right text-xs text-sky-500"></i><a href="#">Hyderabad, Telangana, india</a></li>
-                <li class="flex items-center gap-2 font-semibold text-[13px]"><i class="fa-solid fa-chevron-right text-xs text-sky-500"></i><a href="#">linkedin/samirali</a></li>
-                <li class="flex items-center gap-2 font-semibold text-[13px]"><i class="fa-solid fa-chevron-right text-xs text-sky-500"></i><a href="#">github/samir.com</a></li>
-                <li class="flex items-center gap-2 font-semibold text-[13px]"><i class="fa-solid fa-chevron-right text-xs text-sky-500"></i><a href="#">Contact</a></li>
-            </ul>
-        </div>
-        <div class="followme-card-5 flex flex-col gap-3">
-            <div class="contact-title">
-                <h1 class="text-xl font-bold mb-2">Get in Touch</h1>
-            </div>
-            <ul class="links-icon flex gap-2">
-                <li><a href="#" class="w-10 h-10 rounded-full border border-sky-500 flex items-center justify-center text-sky-500 hover:bg-sky-500 hover:text-white transition-all duration-300">
-                    <i class="fa-brands fa-linkedin-in text-lg"></i></a></li>
 
-                <li><a href="#" class="w-10 h-10 rounded-full border border-sky-500 flex items-center justify-center text-sky-500 hover:bg-sky-500 hover:text-white transition-all duration-300">
-                   <i class="fa-brands fa-github text-lg"></i></a></li>
-                <li><a href="#" class="w-10 h-10 rounded-full border border-sky-500 flex items-center justify-center text-sky-500 hover:bg-sky-500 hover:text-white transition-all duration-300">
-                    <i class="fa-brands fa-twitter text-lg"></i></a></li>
-                <li><a href="#" class="w-10 h-10 rounded-full border border-sky-500 flex items-center justify-center text-sky-500 hover:bg-sky-500 hover:text-white transition-all duration-300">
-                    <i class="fa-regular fa-envelope text-lg"></i></a></li>
-            </ul>
-            <div class="footer-newsletter flex flex-col gap-3">
-                <div class="news-letter-details">
-                    <p>Subscribe in Newsletter</p>
-                    <p>Lorem ipsum dolor sit.</p>
+            <!-- Right Message Form Card -->
+            <div class="contact-right-card p-8 border theme-border theme-bg-card rounded-3xl theme-shadow">
+                <div class="form-heading flex flex-col gap-2 mb-6">
+                    <h1 class="font-bold text-2xl theme-text-primary">Send Me a Message</h1>
+                    <span class="w-16 h-1 theme-btn-primary rounded-full"></span>
                 </div>
-                <form action="" class="flex">
-                    <input type="email" class="rounded-l-sm pl-1 w-50 h-10 border border-r-0 border-gray-400" placeholder="Enter your email">
-                    <button class="bg-sky-400 p-2 rounded-r-sm"><i class="fa-solid fa-paper-plane text-white text-xl"></i></button>
+                
+                <form action="#" onsubmit="event.preventDefault();" class="flex flex-col gap-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <input type="text" placeholder="Your Name"
+                            class="border theme-border theme-bg-input rounded-xl h-11 px-4 text-sm theme-text-primary focus:outline-none focus:ring-1 focus:ring-amber-500" />
+                        <input type="email" placeholder="Enter Your Email"
+                            class="border theme-border theme-bg-input rounded-xl h-11 px-4 text-sm theme-text-primary focus:outline-none focus:ring-1 focus:ring-amber-500" />
+                    </div>
+
+                    <select class="h-11 theme-text-secondary rounded-xl px-4 border theme-border theme-bg-input text-sm focus:outline-none focus:ring-1 focus:ring-amber-500">
+                        <option value="" disabled selected>Select Subject</option>
+                        <option value="project">Web Development</option>
+                        <option value="freelance">Freelance Inquiry</option>
+                        <option value="job">Full-time Role</option>
+                        <option value="other">General Message</option>
+                    </select>
+
+                    <textarea class="theme-bg-input h-36 px-4 py-3 border theme-border rounded-xl text-sm theme-text-primary focus:outline-none focus:ring-1 focus:ring-amber-500"
+                        placeholder="Your Message"></textarea>
+
+                    <button class="flex gap-2 theme-btn-primary justify-center items-center rounded-xl py-3 shadow-md hover:shadow-lg transition-all">
+                        <i class="fa-solid fa-paper-plane text-stone-900 text-sm"></i>
+                        <span class="font-bold text-sm text-stone-900">Send Message</span>
+                    </button>
                 </form>
             </div>
         </div>
-    </div>
-    <div></div>
-</footer>
-  <!-- Footer Section End here -->
+    </section>
 
+       <footer class="lg:px-16 sm:px-8 px-4 py-12 theme-bg-secondary flex flex-col gap-8">
+        <div id="footer-details" class="grid grid-cols-1 lg:grid-cols-5 sm:grid-cols-2 gap-8">
+            <!-- Col 1: Brand Info -->
+            <div class="footer-name-card-1 lg:col-span-1">
+                <div class="footer-title flex flex-col gap-3">
+                    <div class="footer-heading flex items-center gap-3">
+                        <div class="footer-style-name text-2xl font-bold font-serif theme-btn-primary px-3 py-1 rounded-xl">
+                            SA
+                        </div>
+                        <div class="footer-name flex flex-col">
+                            <span class="font-bold text-lg theme-text-primary">Samir Ali</span>
+                            <span class="font-medium text-xs theme-text-light">Full Stack Java Developer</span>
+                        </div>
+                    </div>
+                    <p class="theme-text-secondary text-xs leading-relaxed">
+                        Designing & engineering bespoke digital experiences with precision and modern web standards.
+                    </p>
+                </div>
+            </div>
 
+            <!-- Col 2: Quick Links -->
+            <div class="quickLink-card2">
+                <h1 class="text-base font-bold mb-4 theme-text-primary">Quick Links</h1>
+                <ul class="flex flex-col gap-2 theme-text-secondary text-xs">
+                    <li class="flex items-center gap-2 hover:text-amber-600 transition"><i class="fa-solid fa-chevron-right text-[10px] theme-text-light"></i><a href="#home">Home</a></li>
+                    <li class="flex items-center gap-2 hover:text-amber-600 transition"><i class="fa-solid fa-chevron-right text-[10px] theme-text-light"></i><a href="#about">About</a></li>
+                    <li class="flex items-center gap-2 hover:text-amber-600 transition"><i class="fa-solid fa-chevron-right text-[10px] theme-text-light"></i><a href="#skills">Skills</a></li>
+                    <li class="flex items-center gap-2 hover:text-amber-600 transition"><i class="fa-solid fa-chevron-right text-[10px] theme-text-light"></i><a href="#projects">Projects</a></li>
+                    <li class="flex items-center gap-2 hover:text-amber-600 transition"><i class="fa-solid fa-chevron-right text-[10px] theme-text-light"></i><a href="#experience">Experience</a></li>
+                    <li class="flex items-center gap-2 hover:text-amber-600 transition"><i class="fa-solid fa-chevron-right text-[10px] theme-text-light"></i><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 3: Services -->
+            <div class="services-card-3">
+                <h1 class="text-base font-bold mb-4 theme-text-primary">Services</h1>
+                <ul class="flex flex-col gap-2 theme-text-secondary text-xs">
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] theme-text-light"></i><span>Web Development</span></li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] theme-text-light"></i><span>Backend Development</span></li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] theme-text-light"></i><span>Java Development</span></li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] theme-text-light"></i><span>Database Design</span></li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] theme-text-light"></i><span>API Integration</span></li>
+                </ul>
+            </div>
+
+            <!-- Col 4: Contact -->
+            <div class="contact-card-4">
+                <h1 class="text-base font-bold mb-4 theme-text-primary">Get in Touch</h1>
+                <ul class="flex flex-col gap-2 theme-text-secondary text-xs">
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] theme-text-light"></i><span>samir23@gmail.com</span></li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] theme-text-light"></i><span>+91 76584 93456</span></li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] theme-text-light"></i><span>Hyderabad, Telangana, India</span></li>
+                </ul>
+            </div>
+
+            <!-- Col 5: Follow & Newsletter -->
+            <div class="followme-card-5 flex flex-col gap-4">
+                <h1 class="text-base font-bold theme-text-primary">Follow Me</h1>
+                <ul class="links-icon flex gap-2">
+                    <li>
+                        <a href="#" class="w-9 h-9 rounded-full border theme-border flex items-center justify-center theme-text-primary hover:theme-btn-primary transition-all">
+                            <i class="fa-brands fa-linkedin-in text-sm"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="w-9 h-9 rounded-full border theme-border flex items-center justify-center theme-text-primary hover:theme-btn-primary transition-all">
+                            <i class="fa-brands fa-github text-sm"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="w-9 h-9 rounded-full border theme-border flex items-center justify-center theme-text-primary hover:theme-btn-primary transition-all">
+                            <i class="fa-brands fa-twitter text-sm"></i>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="footer-newsletter flex flex-col gap-2 mt-2">
+                    <p class="text-xs font-semibold theme-text-primary">Subscribe to Newsletter</p>
+                    <form action="#" onsubmit="event.preventDefault();" class="flex">
+                        <input type="email" class="rounded-l-xl px-3 h-9 text-xs border theme-border theme-bg-input theme-text-primary focus:outline-none" placeholder="Enter your email" />
+                        <button class="theme-btn-primary px-3 rounded-r-xl text-stone-900">
+                            <i class="fa-solid fa-paper-plane text-xs"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="border-t theme-border pt-6 text-center text-xs theme-text-light">
+            <p>© 2026 Samir Ali. All rights reserved. Powered by Luxury Beige Theme.</p>
+        </div>
+    </footer>
+    <script>
+        lucide.createIcons();
+    </script>
     <script src="js/index.js"></script>
     <script src="js/menu.js"></script>
     <script src="js/theme.js"></script>
 </body>
+
 </html>
