@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShopSphere - Sony WH-1000XM5</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              DEFAULT: '#f95716',
+              hover: '#e04709',
+              light: '#fff4f0',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Scrollbar & Animations */
+    .fade-in {
+      animation: fadeIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.98); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body class="bg-[#f8f9fa] font-sans text-slate-800 antialiased selection:bg-brand selection:text-white">
+
+  <!-- 1. TOP ANNOUNCEMENT BAR -->
+  <div class="bg-slate-900 text-slate-300 text-xs py-2 px-4 sm:px-8 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+      <div class="flex items-center gap-2">
+        <i data-lucide="truck" class="w-4 h-4 text-brand"></i>
+        <span>Free shipping on orders over <strong class="text-white">$50!</strong></span>
+      </div>
+      <div class="flex items-center gap-6">
+        <a href="#" class="hover:text-white transition-colors">Help & Support</a>
+        <span class="text-slate-700">|</span>
+        <a href="#" class="hover:text-white transition-colors">Track Order</a>
+        <span class="text-slate-700">|</span>
+        <div class="flex items-center gap-1.5 cursor-pointer hover:text-white transition-colors">
+          <span class="text-base">🇺🇸</span>
+          <span>English</span>
+          <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. MAIN HEADER -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8 py-4 flex flex-wrap md:flex-nowrap items-center justify-between gap-4">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-2 group">
+        <div class="w-10 h-10 bg-brand text-white rounded-xl flex items-center justify-center shadow-md shadow-brand/20 group-hover:scale-105 transition-transform">
+          <i data-lucide="shopping-bag" class="w-6 h-6"></i>
+        </div>
+        <span class="text-2xl font-bold tracking-tight text-slate-900">Shop<span class="text-brand">Sphere</span></span>
+      </a>
+
+      <!-- Search Bar -->
+      <div class="order-3 md:order-2 w-full md:w-auto flex-1 max-w-2xl">
+        <form class="flex items-center bg-slate-100 rounded-xl overflow-hidden border border-transparent focus-within:border-brand focus-within:bg-white transition-all">
+          <input 
+            type="text" 
+            placeholder="Search for products..." 
+            class="w-full bg-transparent px-4 py-2.5 text-sm text-slate-800 focus:outline-none placeholder:text-slate-400"
+          >
+          <div class="hidden sm:flex items-center border-l border-slate-300/60 px-3">
+            <select class="bg-transparent text-xs font-medium text-slate-600 focus:outline-none cursor-pointer pr-2">
+              <option>All Categories</option>
+              <option>Electronics</option>
+              <option>Headphones</option>
+              <option>Accessories</option>
+            </select>
+          </div>
+          <button type="submit" class="bg-brand hover:bg-brand-hover text-white px-5 py-3 transition-colors flex items-center justify-center">
+            <i data-lucide="search" class="w-4 h-4"></i>
+          </button>
+        </form>
+      </div>
+
+      <!-- Action Icons -->
+      <div class="order-2 md:order-3 flex items-center gap-6">
+        <!-- Account -->
+        <a href="#" class="flex items-center gap-2.5 group">
+          <div class="p-2 rounded-full bg-slate-100 group-hover:bg-brand-light group-hover:text-brand transition-colors">
+            <i data-lucide="user" class="w-5 h-5"></i>
+          </div>
+          <div class="hidden lg:block text-left">
+            <p class="text-[10px] text-slate-400 uppercase font-semibold leading-none">Account</p>
+            <p class="text-xs font-semibold text-slate-800 group-hover:text-brand transition-colors">Sign In</p>
+          </div>
+        </a>
+
+        <!-- Wishlist -->
+        <a href="#" class="flex items-center gap-2 group relative">
+          <div class="p-2 rounded-full bg-slate-100 group-hover:bg-brand-light group-hover:text-brand transition-colors">
+            <i data-lucide="heart" class="w-5 h-5"></i>
+          </div>
+          <span class="hidden lg:inline text-xs font-semibold text-slate-800 group-hover:text-brand transition-colors">Wishlist</span>
+        </a>
+
+        <!-- Cart -->
+        <a href="#" class="flex items-center gap-2.5 group">
+          <div class="relative p-2 rounded-full bg-slate-100 group-hover:bg-brand-light group-hover:text-brand transition-colors">
+            <i data-lucide="shopping-cart" class="w-5 h-5"></i>
+            <span id="cart-badge" class="absolute -top-1 -right-1 bg-brand text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center border-2 border-white">2</span>
+          </div>
+          <div class="hidden lg:block">
+            <p class="text-xs font-semibold text-slate-800 group-hover:text-brand transition-colors">Cart</p>
+          </div>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- 3. NAVIGATION BAR -->
+  <nav class="bg-white border-b border-slate-200 hidden md:block">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8 flex items-center gap-8 text-sm font-medium">
+      <!-- Categories Button -->
+      <div class="relative group py-3">
+        <button class="flex items-center gap-3 text-slate-900 font-semibold hover:text-brand transition-colors">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+          <span>All Categories</span>
+        </button>
+      </div>
+
+      <!-- Links -->
+      <div class="flex items-center gap-8 text-slate-600">
+        <a href="#" class="hover:text-brand transition-colors">Home</a>
+        <div class="flex items-center gap-1 cursor-pointer hover:text-brand transition-colors">
+          <span>Shop</span>
+          <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
+        </div>
+        <div class="flex items-center gap-1 cursor-pointer hover:text-brand transition-colors">
+          <span>Categories</span>
+          <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
+        </div>
+        <a href="#" class="hover:text-brand transition-colors">Deals</a>
+        <a href="#" class="hover:text-brand transition-colors">New Arrivals</a>
+        <a href="#" class="hover:text-brand transition-colors">Best Sellers</a>
+        <a href="#" class="hover:text-brand transition-colors">Contact Us</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-8 py-6 space-y-8">
+    
+    <!-- BREADCRUMB -->
+    <nav class="flex items-center gap-2 text-xs text-slate-500">
+      <a href="#" class="hover:text-brand transition-colors">Home</a>
+      <i data-lucide="chevron-right" class="w-3 h-3"></i>
+      <a href="#" class="hover:text-brand transition-colors">Electronics</a>
+      <i data-lucide="chevron-right" class="w-3 h-3"></i>
+      <a href="#" class="hover:text-brand transition-colors">Headphones</a>
+      <i data-lucide="chevron-right" class="w-3 h-3"></i>
+      <span class="text-slate-800 font-medium">Sony WH-1000XM5</span>
+    </nav>
+
+    <!-- PRODUCT DETAIL SECTION GRID -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- LEFT & MIDDLE: IMAGE GALLERY & DETAILS (9 COLS) -->
+      <div class="lg:col-span-9 grid grid-cols-1 md:grid-cols-12 gap-8 bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm">
+        
+        <!-- THUMBNAILS (3 COLS ON MD) -->
+        <div class="md:col-span-2 order-2 md:order-1 flex md:flex-col gap-3 overflow-x-auto md:overflow-visible pb-2 md:pb-0">
+          <button onclick="changeImage(this, 'https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=800&q=80')" class="thumb-btn active border-2 border-slate-900 rounded-xl p-2 bg-slate-50 transition-all aspect-square flex items-center justify-center shrink-0 w-16 md:w-full">
+            <img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=200&q=80" alt="Sony WH-1000XM5 Front" class="object-contain h-12 w-12">
+          </button>
+          <button onclick="changeImage(this, 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80')" class="thumb-btn border-2 border-transparent hover:border-slate-300 rounded-xl p-2 bg-slate-50 transition-all aspect-square flex items-center justify-center shrink-0 w-16 md:w-full">
+            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=200&q=80" alt="Sony WH-1000XM5 Side" class="object-contain h-12 w-12">
+          </button>
+          <button onclick="changeImage(this, 'https://images.unsplash.com/photo-1484704849700-f032a568e944?auto=format&fit=crop&w=800&q=80')" class="thumb-btn border-2 border-transparent hover:border-slate-300 rounded-xl p-2 bg-slate-50 transition-all aspect-square flex items-center justify-center shrink-0 w-16 md:w-full">
+            <img src="https://images.unsplash.com/photo-1484704849700-f032a568e944?auto=format&fit=crop&w=200&q=80" alt="Sony WH-1000XM5 Angle" class="object-contain h-12 w-12">
+          </button>
+          <button onclick="changeImage(this, 'https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=800&q=80')" class="thumb-btn border-2 border-transparent hover:border-slate-300 rounded-xl p-2 bg-slate-50 transition-all aspect-square flex items-center justify-center shrink-0 w-16 md:w-full">
+            <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=200&q=80" alt="Sony WH-1000XM5 Case" class="object-contain h-12 w-12">
+          </button>
+          <button class="border-2 border-transparent hover:border-slate-300 rounded-xl p-2 bg-slate-50 transition-all aspect-square flex items-center justify-center shrink-0 w-16 md:w-full text-slate-500">
+            <i data-lucide="play-circle" class="w-6 h-6"></i>
+          </button>
+        </div>
+
+        <!-- FEATURED IMAGE PREVIEW (5 COLS ON MD) -->
+        <div class="md:col-span-5 order-1 md:order-2 bg-slate-50 rounded-2xl p-6 relative flex items-center justify-center group min-h-[320px] md:min-h-[420px]">
+          <img id="main-image" src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=800&q=80" alt="Sony WH-1000XM5" class="max-h-[360px] object-contain transition-all duration-300 drop-shadow-md">
+          
+          <button class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm p-2.5 rounded-full shadow-sm hover:bg-white text-slate-700 hover:scale-110 transition-all">
+            <i data-lucide="search" class="w-4 h-4"></i>
+          </button>
+        </div>
+
+        <!-- PRODUCT INFO DETAILS (5 COLS ON MD) -->
+        <div class="md:col-span-5 order-3 flex flex-col justify-between space-y-5">
+          <div>
+            <!-- Badge -->
+            <span class="bg-blue-50 text-blue-600 text-xs font-semibold px-2.5 py-1 rounded-full inline-block mb-2">Best Seller</span>
+            
+            <!-- Title -->
+            <h1 class="text-xl sm:text-2xl font-bold text-slate-900 leading-snug">Sony WH-1000XM5 Wireless Noise Cancelling Headphones</h1>
+            
+            <!-- Ratings -->
+            <div class="flex items-center gap-2 mt-2.5 text-xs">
+              <div class="flex items-center text-amber-400">
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+              </div>
+              <span class="font-bold text-slate-800">(4.8)</span>
+              <span class="text-slate-400">2,345 Reviews</span>
+              <span class="text-slate-300">|</span>
+              <a href="#" class="text-brand hover:underline font-medium">Add Your Review</a>
+            </div>
+          </div>
+
+          <!-- Price -->
+          <div class="flex items-center gap-3">
+            <span class="text-3xl font-extrabold text-brand">$349.99</span>
+            <span class="text-sm text-slate-400 line-through">$399.99</span>
+            <span class="bg-rose-50 text-rose-500 text-xs font-bold px-2 py-0.5 rounded">12% OFF</span>
+          </div>
+
+          <!-- Description Brief -->
+          <p class="text-xs text-slate-500 leading-relaxed">
+            Industry-leading noise canceling with premium sound quality. Up to 30 hours of battery life with quick charge.
+          </p>
+
+          <hr class="border-slate-100">
+
+          <!-- Color Selector -->
+          <div>
+            <div class="text-xs font-semibold text-slate-800 mb-2">Color: <span id="color-label" class="font-normal text-slate-500">Black</span></div>
+            <div class="flex items-center gap-3">
+              <button onclick="selectColor(this, 'Black')" class="color-btn w-9 h-9 rounded-lg bg-slate-900 ring-2 ring-offset-2 ring-slate-900 transition-all"></button>
+              <button onclick="selectColor(this, 'Silver')" class="color-btn w-9 h-9 rounded-lg bg-[#e3e3dc] hover:scale-105 transition-all border border-slate-200"></button>
+              <button onclick="selectColor(this, 'Midnight Blue')" class="color-btn w-9 h-9 rounded-lg bg-[#1e2b42] hover:scale-105 transition-all border border-slate-200"></button>
+            </div>
+          </div>
+
+          <!-- Quantity & Stock Status -->
+          <div class="flex items-center justify-between gap-4">
+            <div class="flex items-center border border-slate-200 rounded-xl overflow-hidden bg-slate-50">
+              <button onclick="updateQty(-1)" class="px-3 py-2 text-slate-600 hover:bg-slate-200 transition-colors">-</button>
+              <span id="qty-count" class="px-3 py-2 text-xs font-bold text-slate-800 min-w-[2rem] text-center">1</span>
+              <button onclick="updateQty(1)" class="px-3 py-2 text-slate-600 hover:bg-slate-200 transition-colors">+</button>
+            </div>
+            
+            <div class="text-xs">
+              <p class="text-emerald-600 font-semibold flex items-center gap-1">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block"></span> In Stock
+              </p>
+              <p class="text-slate-400">Ships within 24 hours</p>
+            </div>
+          </div>
+
+          <!-- Buttons -->
+          <div class="flex items-center gap-3">
+            <button onclick="addToCart()" class="flex-1 bg-brand hover:bg-brand-hover text-white font-semibold py-3 px-4 rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-brand/20 active:scale-95 transition-all text-sm">
+              <i data-lucide="shopping-cart" class="w-4 h-4"></i>
+              Add to Cart
+            </button>
+            <button class="flex-1 border border-slate-300 hover:bg-slate-50 text-slate-800 font-semibold py-3 px-4 rounded-xl transition-all text-sm">
+              Buy Now
+            </button>
+          </div>
+
+          <!-- Wishlist Link -->
+          <button class="flex items-center gap-2 text-xs font-medium text-slate-500 hover:text-brand transition-colors pt-1">
+            <i data-lucide="heart" class="w-4 h-4"></i>
+            Add to Wishlist
+          </button>
+        </div>
+
+      </div>
+
+      <!-- RIGHT: TRUST BADGES (3 COLS) -->
+      <div class="lg:col-span-3 space-y-4">
+        
+        <div class="bg-white p-4 rounded-2xl border border-slate-200/80 flex items-start gap-3.5 shadow-sm hover:border-brand/30 transition-all">
+          <div class="p-3 bg-blue-50 text-blue-600 rounded-xl shrink-0">
+            <i data-lucide="truck" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h4 class="text-xs font-bold text-slate-900">Free Shipping</h4>
+            <p class="text-[11px] text-slate-500 mt-0.5">Free delivery on orders over $50.00</p>
+          </div>
+        </div>
+
+        <div class="bg-white p-4 rounded-2xl border border-slate-200/80 flex items-start gap-3.5 shadow-sm hover:border-brand/30 transition-all">
+          <div class="p-3 bg-emerald-50 text-emerald-600 rounded-xl shrink-0">
+            <i data-lucide="shield-check" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h4 class="text-xs font-bold text-slate-900">2 Years Warranty</h4>
+            <p class="text-[11px] text-slate-500 mt-0.5">Official warranty on all products</p>
+          </div>
+        </div>
+
+        <div class="bg-white p-4 rounded-2xl border border-slate-200/80 flex items-start gap-3.5 shadow-sm hover:border-brand/30 transition-all">
+          <div class="p-3 bg-purple-50 text-purple-600 rounded-xl shrink-0">
+            <i data-lucide="rotate-ccw" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h4 class="text-xs font-bold text-slate-900">30 Days Return</h4>
+            <p class="text-[11px] text-slate-500 mt-0.5">Hassle-free returns within 30 days</p>
+          </div>
+        </div>
+
+        <div class="bg-white p-4 rounded-2xl border border-slate-200/80 flex items-start gap-3.5 shadow-sm hover:border-brand/30 transition-all">
+          <div class="p-3 bg-amber-50 text-amber-600 rounded-xl shrink-0">
+            <i data-lucide="lock" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h4 class="text-xs font-bold text-slate-900">Secure Payment</h4>
+            <p class="text-[11px] text-slate-500 mt-0.5">100% secure payment guarantee</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- BOTTOM SECTION: TABS & RECOMMENDATIONS -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start pt-4">
+      
+      <!-- TABBED PRODUCT INFORMATION (7 COLS) -->
+      <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200/80 p-6 shadow-sm">
+        <!-- Tabs Header -->
+        <div class="flex items-center gap-8 border-b border-slate-100 overflow-x-auto pb-1 text-sm font-semibold">
+          <button onclick="switchTab('desc')" id="tab-desc" class="tab-link text-brand border-b-2 border-brand pb-3 transition-colors shrink-0">Description</button>
+          <button onclick="switchTab('specs')" id="tab-specs" class="tab-link text-slate-400 hover:text-slate-800 border-b-2 border-transparent pb-3 transition-colors shrink-0">Specifications</button>
+          <button onclick="switchTab('reviews')" id="tab-reviews" class="tab-link text-slate-400 hover:text-slate-800 border-b-2 border-transparent pb-3 transition-colors shrink-0">Reviews (2,345)</button>
+          <button onclick="switchTab('qa')" id="tab-qa" class="tab-link text-slate-400 hover:text-slate-800 border-b-2 border-transparent pb-3 transition-colors shrink-0">Q&A</button>
+        </div>
+
+        <!-- Tab Content -->
+        <div class="pt-6">
+          <div id="content-desc" class="space-y-4 text-xs text-slate-600 leading-relaxed fade-in">
+            <p>
+              Engineered to perfection, the Sony WH-1000XM5 headphones deliver exceptional sound quality and the best noise canceling experience. With an advanced processor, multiple microphones, and premium materials, these headphones are built for comfort and performance.
+            </p>
+            <ul class="space-y-2 pt-2 text-slate-700">
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand"></span>
+                Advanced Noise Canceling with Dual Processor
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand"></span>
+                High-Resolution Audio & DSEE Extreme
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand"></span>
+                Up to 30 Hours Battery Life
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand"></span>
+                Quick Charge: 3 min charge = 3 hours playback
+              </li>
+            </ul>
+
+            <button class="text-brand font-semibold text-xs flex items-center gap-1 pt-2 hover:underline">
+              View More <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+
+          <div id="content-specs" class="hidden text-xs text-slate-600 leading-relaxed fade-in">
+            <p>Specifications content goes here...</p>
+          </div>
+          <div id="content-reviews" class="hidden text-xs text-slate-600 leading-relaxed fade-in">
+            <p>Customer reviews section content...</p>
+          </div>
+          <div id="content-qa" class="hidden text-xs text-slate-600 leading-relaxed fade-in">
+            <p>Questions & Answers content...</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- YOU MAY ALSO LIKE (5 COLS) -->
+      <div class="lg:col-span-5 space-y-4">
+        <div class="flex items-center justify-between">
+          <h3 class="font-bold text-slate-900 text-sm">You May Also Like</h3>
+          <a href="#" class="text-xs text-brand font-semibold hover:underline">View All</a>
+        </div>
+
+        <!-- Recommended Cards Grid -->
+        <div class="grid grid-cols-2 gap-4">
+          
+          <!-- Card 1 -->
+          <div class="bg-white p-3.5 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+            <div class="bg-slate-50 rounded-xl p-3 flex items-center justify-center h-32 mb-3">
+              <img src="https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?auto=format&fit=crop&w=300&q=80" alt="Apple AirPods Pro" class="h-24 object-contain group-hover:scale-105 transition-transform">
+            </div>
+            <div>
+              <h4 class="text-xs font-semibold text-slate-800 line-clamp-2 leading-snug">Apple AirPods Pro (2nd Generation)</h4>
+              <div class="flex items-center gap-1 my-1.5 text-amber-400 text-[10px]">
+                <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                <span class="text-slate-400 font-medium ml-1">(1,234)</span>
+              </div>
+              <div class="flex items-center justify-between pt-1">
+                <span class="text-sm font-bold text-slate-900">$249.00</span>
+                <button class="p-1.5 bg-slate-100 hover:bg-brand hover:text-white rounded-lg transition-colors text-slate-700">
+                  <i data-lucide="shopping-cart" class="w-3.5 h-3.5"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="bg-white p-3.5 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+            <div class="bg-slate-50 rounded-xl p-3 flex items-center justify-center h-32 mb-3">
+              <img src="https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?auto=format&fit=crop&w=300&q=80" alt="Apple Watch Series 9" class="h-24 object-contain group-hover:scale-105 transition-transform">
+            </div>
+            <div>
+              <h4 class="text-xs font-semibold text-slate-800 line-clamp-2 leading-snug">Apple Watch Series 9 GPS 41mm</h4>
+              <div class="flex items-center gap-1 my-1.5 text-amber-400 text-[10px]">
+                <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                <span class="text-slate-400 font-medium ml-1">(2,345)</span>
+              </div>
+              <div class="flex items-center justify-between pt-1">
+                <span class="text-sm font-bold text-slate-900">$399.00</span>
+                <button class="p-1.5 bg-slate-100 hover:bg-brand hover:text-white rounded-lg transition-colors text-slate-700">
+                  <i data-lucide="shopping-cart" class="w-3.5 h-3.5"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="bg-white p-3.5 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+            <div class="bg-slate-50 rounded-xl p-3 flex items-center justify-center h-32 mb-3">
+              <img src="https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&w=300&q=80" alt="JBL Flip 6" class="h-24 object-contain group-hover:scale-105 transition-transform">
+            </div>
+            <div>
+              <h4 class="text-xs font-semibold text-slate-800 line-clamp-2 leading-snug">JBL Flip 6 Portable Bluetooth Speaker</h4>
+              <div class="flex items-center gap-1 my-1.5 text-amber-400 text-[10px]">
+                <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                <span class="text-slate-400 font-medium ml-1">(987)</span>
+              </div>
+              <div class="flex items-center justify-between pt-1">
+                <span class="text-sm font-bold text-slate-900">$129.99</span>
+                <button class="p-1.5 bg-slate-100 hover:bg-brand hover:text-white rounded-lg transition-colors text-slate-700">
+                  <i data-lucide="shopping-cart" class="w-3.5 h-3.5"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="bg-white p-3.5 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+            <div class="bg-slate-50 rounded-xl p-3 flex items-center justify-center h-32 mb-3">
+              <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=300&q=80" alt="Mark Ryden Backpack" class="h-24 object-contain group-hover:scale-105 transition-transform">
+            </div>
+            <div>
+              <h4 class="text-xs font-semibold text-slate-800 line-clamp-2 leading-snug">Mark Ryden Travel Backpack</h4>
+              <div class="flex items-center gap-1 my-1.5 text-amber-400 text-[10px]">
+                <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                <span class="text-slate-400 font-medium ml-1">(1,876)</span>
+              </div>
+              <div class="flex items-center justify-between pt-1">
+                <span class="text-sm font-bold text-slate-900">$89.99</span>
+                <button class="p-1.5 bg-slate-100 hover:bg-brand hover:text-white rounded-lg transition-colors text-slate-700">
+                  <i data-lucide="shopping-cart" class="w-3.5 h-3.5"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+<!-- FOOTER SECTION -->
+<footer class="bg-slate-900 text-slate-400 text-xs mt-16 border-t border-slate-800">
+  
+  <!-- Newsletter & Promo Banner -->
+  <div class="border-b border-slate-800 py-8 bg-slate-950/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="space-y-1 text-center md:text-left">
+        <h3 class="text-white text-base font-bold">Join Our Newsletter</h3>
+        <p class="text-slate-400">Subscribe to get special offers, free giveaways, and once-in-a-lifetime deals.</p>
+      </div>
+      <form class="flex items-center w-full md:w-auto max-w-md gap-2" onsubmit="event.preventDefault();">
+        <div class="relative w-full">
+          <i data-lucide="mail" class="w-4 h-4 text-slate-500 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+          <input 
+            type="email" 
+            placeholder="Enter your email address..." 
+            class="w-full bg-slate-800/80 border border-slate-700/80 rounded-xl pl-10 pr-4 py-2.5 text-xs text-white placeholder:text-slate-500 focus:outline-none focus:border-brand transition-colors"
+          >
+        </div>
+        <button type="submit" class="bg-brand hover:bg-brand-hover text-white font-semibold px-5 py-2.5 rounded-xl transition-all shrink-0">
+          Subscribe
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Main Links Grid -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-8 py-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8">
+    
+    <!-- Brand Info (Spans 2 columns on medium screens) -->
+    <div class="md:col-span-2 space-y-4">
+      <a href="#" class="flex items-center gap-2">
+        <div class="w-8 h-8 bg-brand text-white rounded-lg flex items-center justify-center font-bold">
+          <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+        </div>
+        <span class="text-xl font-bold tracking-tight text-white">Shop<span class="text-brand">Sphere</span></span>
+      </a>
+      <p class="text-slate-400 leading-relaxed pr-4">
+        Your ultimate destination for premium electronics, audio gear, and lifestyle accessories. Experience world-class quality with uncompromised customer care.
+      </p>
+      <!-- Social Media Links -->
+      <!-- <div class="flex items-center gap-3 pt-2">
+        <a href="#" class="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center text-slate-300 hover:bg-brand hover:text-white transition-all">
+          <i data-lucide="facebook" class="w-4 h-4"></i>
+        </a>
+        <a href="#" class="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center text-slate-300 hover:bg-brand hover:text-white transition-all">
+          <i data-lucide="twitter" class="w-4 h-4"></i>
+        </a>
+        <a href="#" class="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center text-slate-300 hover:bg-brand hover:text-white transition-all">
+          <i data-lucide="instagram" class="w-4 h-4"></i>
+        </a>
+        <a href="#" class="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center text-slate-300 hover:bg-brand hover:text-white transition-all">
+          <i data-lucide="youtube" class="w-4 h-4"></i>
+        </a>
+      </div> -->
+    </div>
+
+    <!-- Quick Links -->
+    <div class="space-y-3">
+      <h4 class="text-white font-semibold text-sm">Quick Links</h4>
+      <ul class="space-y-2.5">
+        <li><a href="#" class="hover:text-white transition-colors">About ShopSphere</a></li>
+        <li><a href="#" class="hover:text-white transition-colors">Shop All Products</a></li>
+        <li><a href="#" class="hover:text-white transition-colors">Featured Offers</a></li>
+        <li><a href="#" class="hover:text-white transition-colors">Blog & Articles</a></li>
+        <li><a href="#" class="hover:text-white transition-colors">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <!-- Customer Care -->
+    <div class="space-y-3">
+      <h4 class="text-white font-semibold text-sm">Customer Care</h4>
+      <ul class="space-y-2.5">
+        <li><a href="#" class="hover:text-white transition-colors">Track Your Order</a></li>
+        <li><a href="#" class="hover:text-white transition-colors">Shipping & Delivery</a></li>
+        <li><a href="#" class="hover:text-white transition-colors">Returns & Exchanges</a></li>
+        <li><a href="#" class="hover:text-white transition-colors">Warranty & Service</a></li>
+        <li><a href="#" class="hover:text-white transition-colors">Help Center & FAQ</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="space-y-3">
+      <h4 class="text-white font-semibold text-sm">Contact Us</h4>
+      <ul class="space-y-3 text-slate-400">
+        <li class="flex items-start gap-2.5">
+          <i data-lucide="map-pin" class="w-4 h-4 text-brand shrink-0 mt-0.5"></i>
+          <span>123 Commerce Way, Tech City, CA 90210</span>
+        </li>
+        <li class="flex items-center gap-2.5">
+          <i data-lucide="phone" class="w-4 h-4 text-brand shrink-0"></i>
+          <span>+1 (800) 123-4567</span>
+        </li>
+        <li class="flex items-center gap-2.5">
+          <i data-lucide="mail" class="w-4 h-4 text-brand shrink-0"></i>
+          <span>support@shopsphere.com</span>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Bottom Bar: Copyright & Payment Badges -->
+  <div class="border-t border-slate-800 py-6">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-slate-500 text-[11px]">
+        &copy; 2026 ShopSphere Inc. All rights reserved. Built with Tailwind CSS.
+      </p>
+
+      <!-- Accepted Payment Options -->
+      <div class="flex items-center gap-2 text-slate-400">
+        <span class="text-[11px] text-slate-500 mr-2">Secured Payments:</span>
+        <span class="bg-slate-800 px-2 py-1 rounded text-[10px] font-bold tracking-wider text-slate-300">VISA</span>
+        <span class="bg-slate-800 px-2 py-1 rounded text-[10px] font-bold tracking-wider text-slate-300">MC</span>
+        <span class="bg-slate-800 px-2 py-1 rounded text-[10px] font-bold tracking-wider text-slate-300">AMEX</span>
+        <span class="bg-slate-800 px-2 py-1 rounded text-[10px] font-bold tracking-wider text-slate-300">PAYPAL</span>
+        <span class="bg-slate-800 px-2 py-1 rounded text-[10px] font-bold tracking-wider text-slate-300">APPLE PAY</span>
+      </div>
+    </div>
+  </div>
+
+</footer>
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // 1. Image Switcher Animation
+    function changeImage(btn, src) {
+      const mainImg = document.getElementById('main-image');
+      
+      // Update border styles
+      document.querySelectorAll('.thumb-btn').forEach(b => {
+        b.classList.remove('border-slate-900');
+        b.classList.add('border-transparent');
+      });
+      btn.classList.remove('border-transparent');
+      btn.classList.add('border-slate-900');
+
+      // Animation effect
+      mainImg.style.opacity = '0';
+      mainImg.style.transform = 'scale(0.95)';
+      
+      setTimeout(() => {
+        mainImg.src = src;
+        mainImg.style.opacity = '1';
+        mainImg.style.transform = 'scale(1)';
+      }, 150);
+    }
+
+    // 2. Color Selection Toggle
+    function selectColor(btn, colorName) {
+      document.getElementById('color-label').innerText = colorName;
+      
+      document.querySelectorAll('.color-btn').forEach(b => {
+        b.classList.remove('ring-2', 'ring-offset-2', 'ring-slate-900');
+      });
+      btn.classList.add('ring-2', 'ring-offset-2', 'ring-slate-900');
+    }
+
+    // 3. Quantity Counter
+    let currentQty = 1;
+    function updateQty(change) {
+      currentQty = Math.max(1, currentQty + change);
+      document.getElementById('qty-count').innerText = currentQty;
+    }
+
+    // 4. Tab Navigation Switcher
+    function switchTab(tabName) {
+      const tabs = ['desc', 'specs', 'reviews', 'qa'];
+      
+      tabs.forEach(t => {
+        const tabBtn = document.getElementById(`tab-${t}`);
+        const content = document.getElementById(`content-${t}`);
+        
+        if (t === tabName) {
+          tabBtn.classList.add('text-brand', 'border-brand');
+          tabBtn.classList.remove('text-slate-400', 'border-transparent');
+          content.classList.remove('hidden');
+        } else {
+          tabBtn.classList.remove('text-brand', 'border-brand');
+          tabBtn.classList.add('text-slate-400', 'border-transparent');
+          content.classList.add('hidden');
+        }
+      });
+    }
+
+    // 5. Add to Cart Badge Animation
+    function addToCart() {
+      const badge = document.getElementById('cart-badge');
+      let currentVal = parseInt(badge.innerText);
+      badge.innerText = currentVal + currentQty;
+      
+      badge.classList.add('scale-125');
+      setTimeout(() => {
+        badge.classList.remove('scale-125');
+      }, 200);
+    }
+  </script>
+</body>
+</html>
