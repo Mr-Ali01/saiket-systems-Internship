@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - TechSolutions</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Google Fonts (Inter) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              DEFAULT: '#2563eb', // Primary Blue
+              hover: '#1d4ed8',
+              light: '#eff6ff',
+              dark: '#1e3a8a',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Smooth Transitions & Focus Customization */
+    input, select, textarea {
+      transition: all 0.2s ease-in-out;
+    }
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: #2563eb !important;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15) !important;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background-color: #cbd5e1;
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 font-sans text-slate-700 antialiased selection:bg-brand selection:text-white flex flex-col min-h-screen">
+
+  <!-- ==================== 1. HEADER / NAVBAR ==================== -->
+  <header class="bg-white border-b border-slate-100 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-2.5 group">
+        <div class="w-9 h-9 bg-brand text-white rounded-lg flex items-center justify-center shadow-md shadow-brand/20 group-hover:scale-105 transition-transform">
+          <i data-lucide="send" class="w-5 h-5 -rotate-45 -mt-0.5 -mr-0.5"></i>
+        </div>
+        <span class="text-xl font-extrabold text-slate-900 tracking-tight">Tech<span class="text-brand">Solutions</span></span>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-semibold">
+        <a href="#" class="text-slate-600 hover:text-brand transition-colors">Home</a>
+        <a href="#" class="text-slate-600 hover:text-brand transition-colors">About</a>
+        <a href="#" class="text-slate-600 hover:text-brand transition-colors">Services</a>
+        <a href="#" class="text-slate-600 hover:text-brand transition-colors">Portfolio</a>
+        <a href="#" class="text-slate-600 hover:text-brand transition-colors">Blog</a>
+        <a href="#" class="text-brand font-bold relative py-1 after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-brand after:rounded-full">Contact</a>
+      </nav>
+
+      <!-- CTA Button & Mobile Menu Toggle -->
+      <div class="flex items-center gap-4">
+        <a href="#contact-form-section" class="hidden sm:inline-flex bg-brand hover:bg-brand-hover text-white text-sm font-semibold px-5 py-2.5 rounded-xl shadow-md shadow-brand/20 hover:shadow-lg transition-all active:scale-95">
+          Get in Touch
+        </a>
+        <button class="md:hidden text-slate-600 hover:text-slate-900 p-2">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ==================== 2. HERO SECTION ==================== -->
+  <section class="relative bg-gradient-to-b from-blue-50/70 via-indigo-50/30 to-slate-50 pt-16 pb-28 px-4 sm:px-6 overflow-hidden">
+    <!-- Subtle Background Wavy Graphic -->
+    <div class="absolute inset-0 opacity-40 pointer-events-none">
+      <svg class="w-full h-full" viewBox="0 0 1440 320" fill="none" preserveAspectRatio="none">
+        <path d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,165.3C1248,149,1344,107,1392,85.3L1440,64L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z" fill="url(#hero-gradient)"></path>
+        <defs>
+          <linearGradient id="hero-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.15" />
+            <stop offset="100%" stop-color="#93c5fd" stop-opacity="0.05" />
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+
+    <div class="max-w-4xl mx-auto text-center relative z-10 space-y-3">
+      <h1 class="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
+        Contact Us
+      </h1>
+      <p class="text-slate-600 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+        We'd love to hear from you. Please fill out the form below and we'll get back to you as soon as possible.
+      </p>
+    </div>
+  </section>
+
+  <!-- ==================== 3. MAIN CONTENT (FORM + INFO) ==================== -->
+  <main id="contact-form-section" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-16 pb-20 relative z-20 flex-grow w-full">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- LEFT COLUMN: CONTACT FORM (8 COLS) -->
+      <div class="lg:col-span-8 bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/80 shadow-xl shadow-slate-200/50">
+        
+        <!-- Form Title Header -->
+        <div class="flex items-start gap-4 mb-8">
+          <div class="w-12 h-12 bg-blue-50 text-brand rounded-xl flex items-center justify-center shrink-0 border border-blue-100">
+            <i data-lucide="mail" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <h2 class="text-xl font-bold text-slate-900">Send Us a Message</h2>
+            <p class="text-xs sm:text-sm text-slate-500 mt-0.5">Fill out the form below and we'll respond to you shortly.</p>
+          </div>
+        </div>
+
+        <!-- Notification Alert Toast -->
+        <div id="form-alert" class="hidden mb-6 p-4 rounded-xl text-xs font-medium transition-all"></div>
+
+        <!-- Contact Form -->
+        <form id="contact-form" class="space-y-6" onsubmit="handleFormSubmit(event)">
+          
+          <!-- Row 1: Name & Email -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <!-- Full Name -->
+            <div>
+              <label class="block text-xs font-bold text-slate-800 mb-1.5">Full Name <span class="text-rose-500">*</span></label>
+              <div class="relative">
+                <i data-lucide="user" class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+                <input 
+                  type="text" 
+                  required 
+                  placeholder="Enter your full name" 
+                  class="w-full bg-slate-50/50 border border-slate-200 rounded-xl pl-10 pr-4 py-2.5 text-xs text-slate-800 placeholder:text-slate-400"
+                >
+              </div>
+            </div>
+
+            <!-- Email Address -->
+            <div>
+              <label class="block text-xs font-bold text-slate-800 mb-1.5">Email Address <span class="text-rose-500">*</span></label>
+              <div class="relative">
+                <i data-lucide="mail" class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+                <input 
+                  type="email" 
+                  required 
+                  placeholder="Enter your email address" 
+                  class="w-full bg-slate-50/50 border border-slate-200 rounded-xl pl-10 pr-4 py-2.5 text-xs text-slate-800 placeholder:text-slate-400"
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 2: Phone & Subject -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <!-- Phone Number -->
+            <div>
+              <label class="block text-xs font-bold text-slate-800 mb-1.5">Phone Number</label>
+              <div class="relative">
+                <i data-lucide="phone" class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+                <input 
+                  type="tel" 
+                  placeholder="Enter your phone number" 
+                  class="w-full bg-slate-50/50 border border-slate-200 rounded-xl pl-10 pr-4 py-2.5 text-xs text-slate-800 placeholder:text-slate-400"
+                >
+              </div>
+            </div>
+
+            <!-- Subject -->
+            <div>
+              <label class="block text-xs font-bold text-slate-800 mb-1.5">Subject <span class="text-rose-500">*</span></label>
+              <div class="relative">
+                <select required class="w-full bg-slate-50/50 border border-slate-200 rounded-xl px-4 py-2.5 text-xs text-slate-800 appearance-none cursor-pointer pr-10">
+                  <option value="" disabled selected>Select a subject</option>
+                  <option value="general">General Inquiry</option>
+                  <option value="project">New Project Request</option>
+                  <option value="support">Technical Support</option>
+                  <option value="partnership">Partnership Opportunity</option>
+                </select>
+                <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 3: Preferred Contact Method & How did you find us -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <!-- Preferred Contact Method -->
+            <div>
+              <label class="block text-xs font-bold text-slate-800 mb-2">Preferred Contact Method <span class="text-rose-500">*</span></label>
+              <div class="flex items-center gap-6 pt-1">
+                <label class="flex items-center gap-2 text-xs text-slate-700 font-medium cursor-pointer">
+                  <input type="radio" name="contact_method" value="email" checked class="w-4 h-4 text-brand focus:ring-brand accent-brand">
+                  Email
+                </label>
+                <label class="flex items-center gap-2 text-xs text-slate-700 font-medium cursor-pointer">
+                  <input type="radio" name="contact_method" value="phone" class="w-4 h-4 text-brand focus:ring-brand accent-brand">
+                  Phone
+                </label>
+                <label class="flex items-center gap-2 text-xs text-slate-700 font-medium cursor-pointer">
+                  <input type="radio" name="contact_method" value="both" class="w-4 h-4 text-brand focus:ring-brand accent-brand">
+                  Both
+                </label>
+              </div>
+            </div>
+
+            <!-- How did you find us -->
+            <div>
+              <label class="block text-xs font-bold text-slate-800 mb-1.5">How did you find us?</label>
+              <div class="relative">
+                <select class="w-full bg-slate-50/50 border border-slate-200 rounded-xl px-4 py-2.5 text-xs text-slate-800 appearance-none cursor-pointer pr-10">
+                  <option value="" disabled selected>Select an option</option>
+                  <option value="search">Search Engine (Google, Bing)</option>
+                  <option value="social">Social Media</option>
+                  <option value="referral">Friend or Colleague Referral</option>
+                  <option value="advertisement">Online Advertisement</option>
+                  <option value="other">Other</option>
+                </select>
+                <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- Services Interested In -->
+          <div>
+            <label class="block text-xs font-bold text-slate-800 mb-2">Services Interested In</label>
+            <div class="flex flex-wrap items-center gap-y-3 gap-x-6">
+              <label class="flex items-center gap-2 text-xs text-slate-700 font-medium cursor-pointer">
+                <input type="checkbox" class="w-4 h-4 rounded text-brand focus:ring-brand accent-brand">
+                Web Design
+              </label>
+              <label class="flex items-center gap-2 text-xs text-slate-700 font-medium cursor-pointer">
+                <input type="checkbox" checked class="w-4 h-4 rounded text-brand focus:ring-brand accent-brand">
+                Web Development
+              </label>
+              <label class="flex items-center gap-2 text-xs text-slate-700 font-medium cursor-pointer">
+                <input type="checkbox" class="w-4 h-4 rounded text-brand focus:ring-brand accent-brand">
+                SEO Optimization
+              </label>
+              <label class="flex items-center gap-2 text-xs text-slate-700 font-medium cursor-pointer">
+                <input type="checkbox" class="w-4 h-4 rounded text-brand focus:ring-brand accent-brand">
+                Digital Marketing
+              </label>
+              <label class="flex items-center gap-2 text-xs text-slate-700 font-medium cursor-pointer">
+                <input type="checkbox" class="w-4 h-4 rounded text-brand focus:ring-brand accent-brand">
+                Other
+              </label>
+            </div>
+          </div>
+
+          <!-- Message Field -->
+          <div>
+            <label class="block text-xs font-bold text-slate-800 mb-1.5">Message <span class="text-rose-500">*</span></label>
+            <textarea 
+              rows="4" 
+              required 
+              placeholder="Write your message here..." 
+              class="w-full bg-slate-50/50 border border-slate-200 rounded-xl p-3.5 text-xs text-slate-800 placeholder:text-slate-400 resize-y"
+            ></textarea>
+          </div>
+
+          <!-- Terms Checkbox -->
+          <div class="flex items-center gap-2 pt-1">
+            <input type="checkbox" id="terms" required class="w-4 h-4 rounded text-brand focus:ring-brand accent-brand">
+            <label for="terms" class="text-xs text-slate-600 font-medium select-none cursor-pointer">
+              I agree to the <a href="#" class="text-brand hover:underline font-semibold">Privacy Policy</a> and <a href="#" class="text-brand hover:underline font-semibold">Terms of Service</a>. <span class="text-rose-500">*</span>
+            </label>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="flex items-center gap-3 pt-2">
+            <button 
+              type="submit" 
+              class="bg-brand hover:bg-brand-hover text-white text-xs font-semibold px-5 py-3 rounded-xl shadow-md shadow-brand/20 hover:shadow-lg transition-all flex items-center gap-2 active:scale-95"
+            >
+              <i data-lucide="send" class="w-4 h-4"></i>
+              Send Message
+            </button>
+            <button 
+              type="button" 
+              onclick="resetForm()" 
+              class="border border-slate-200 hover:bg-slate-50 text-slate-700 text-xs font-semibold px-5 py-3 rounded-xl transition-all flex items-center gap-2"
+            >
+              <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
+              Reset Form
+            </button>
+          </div>
+
+        </form>
+
+      </div>
+
+      <!-- RIGHT COLUMN: GET IN TOUCH CARD (4 COLS) -->
+      <div class="lg:col-span-4 bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/80 shadow-xl shadow-slate-200/50 space-y-8">
+        
+        <!-- Header -->
+        <div>
+          <h2 class="text-xl font-bold text-slate-900">Get in Touch</h2>
+          <div class="w-10 h-1 bg-brand rounded-full mt-2"></div>
+        </div>
+
+        <!-- Contact Cards List -->
+        <div class="space-y-6 text-xs">
+          
+          <!-- Our Location -->
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 bg-blue-50 text-brand rounded-full flex items-center justify-center shrink-0">
+              <i data-lucide="map-pin" class="w-5 h-5"></i>
+            </div>
+            <div class="space-y-1">
+              <h4 class="font-bold text-slate-900 text-sm">Our Location</h4>
+              <p class="text-slate-500 leading-relaxed">
+                123 Tech Street,<br>
+                San Francisco, CA 94107,<br>
+                United States
+              </p>
+            </div>
+          </div>
+
+          <hr class="border-slate-100">
+
+          <!-- Phone Number -->
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 bg-blue-50 text-brand rounded-full flex items-center justify-center shrink-0">
+              <i data-lucide="phone" class="w-5 h-5"></i>
+            </div>
+            <div class="space-y-1">
+              <h4 class="font-bold text-slate-900 text-sm">Phone Number</h4>
+              <p class="text-slate-500">+1 (234) 567-8900</p>
+            </div>
+          </div>
+
+          <hr class="border-slate-100">
+
+          <!-- Email Address -->
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 bg-blue-50 text-brand rounded-full flex items-center justify-center shrink-0">
+              <i data-lucide="mail" class="w-5 h-5"></i>
+            </div>
+            <div class="space-y-1">
+              <h4 class="font-bold text-slate-900 text-sm">Email Address</h4>
+              <a href="mailto:info@techsolutions.com" class="text-slate-500 hover:text-brand transition-colors">info@techsolutions.com</a>
+            </div>
+          </div>
+
+          <hr class="border-slate-100">
+
+          <!-- Business Hours -->
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 bg-blue-50 text-brand rounded-full flex items-center justify-center shrink-0">
+              <i data-lucide="clock" class="w-5 h-5"></i>
+            </div>
+            <div class="space-y-1">
+              <h4 class="font-bold text-slate-900 text-sm">Business Hours</h4>
+              <div class="text-slate-500 leading-relaxed space-y-0.5">
+                <p>Monday - Friday</p>
+                <p class="font-medium text-slate-700">9:00 AM - 6:00 PM (EST)</p>
+                <p class="pt-1">Saturday - Sunday</p>
+                <p class="font-medium text-slate-700">Closed</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ==================== 4. FOOTER ==================== -->
+  <footer class="bg-[#0b132b] text-slate-400 text-xs mt-auto">
+    
+    <!-- Footer Upper Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8">
+      
+      <!-- Col 1: Brand Info -->
+      <div class="space-y-4 md:col-span-1">
+        <a href="#" class="flex items-center gap-2">
+          <span class="text-lg font-extrabold text-white tracking-tight">Tech<span class="text-brand">Solutions</span></span>
+        </a>
+        <p class="text-slate-400 leading-relaxed">
+          We provide innovative solutions to help your business grow.
+        </p>
+        <!-- Social Icons -->
+        <div class="flex items-center gap-2.5 pt-1">
+          <a href="#" class="w-8 h-8 rounded-full bg-slate-800/80 hover:bg-brand flex items-center justify-center text-slate-300 hover:text-white transition-all">
+            <i data-lucide="facebook" class="w-3.5 h-3.5"></i>
+          </a>
+          <a href="#" class="w-8 h-8 rounded-full bg-slate-800/80 hover:bg-brand flex items-center justify-center text-slate-300 hover:text-white transition-all">
+            <i data-lucide="twitter" class="w-3.5 h-3.5"></i>
+          </a>
+          <a href="#" class="w-8 h-8 rounded-full bg-slate-800/80 hover:bg-brand flex items-center justify-center text-slate-300 hover:text-white transition-all">
+            <i data-lucide="linkedin" class="w-3.5 h-3.5"></i>
+          </a>
+          <a href="#" class="w-8 h-8 rounded-full bg-slate-800/80 hover:bg-brand flex items-center justify-center text-slate-300 hover:text-white transition-all">
+            <i data-lucide="instagram" class="w-3.5 h-3.5"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Col 2: Quick Links -->
+      <div class="space-y-3">
+        <h4 class="text-white font-bold text-sm">Quick Links</h4>
+        <ul class="space-y-2">
+          <li><a href="#" class="hover:text-white transition-colors">Home</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">About Us</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">Services</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">Portfolio</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Our Services -->
+      <div class="space-y-3">
+        <h4 class="text-white font-bold text-sm">Our Services</h4>
+        <ul class="space-y-2">
+          <li><a href="#" class="hover:text-white transition-colors">Web Design</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">Web Development</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">SEO Optimization</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">Digital Marketing</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">Maintenance</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Support -->
+      <div class="space-y-3">
+        <h4 class="text-white font-bold text-sm">Support</h4>
+        <ul class="space-y-2">
+          <li><a href="#" class="hover:text-white transition-colors">FAQ</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">Terms of Service</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">Help Center</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 5: Newsletter -->
+      <div class="space-y-3 sm:col-span-2 md:col-span-1">
+        <h4 class="text-white font-bold text-sm">Newsletter</h4>
+        <p class="text-slate-400 leading-relaxed">
+          Subscribe to our newsletter for the latest updates.
+        </p>
+        <form class="space-y-2" onsubmit="event.preventDefault(); alert('Subscribed to newsletter!');">
+          <input 
+            type="email" 
+            required 
+            placeholder="Enter your email" 
+            class="w-full bg-slate-900 border border-slate-700/70 rounded-xl px-3.5 py-2.5 text-xs text-white placeholder:text-slate-500 focus:outline-none focus:border-brand"
+          >
+          <button type="submit" class="w-full bg-brand hover:bg-brand-hover text-white font-semibold py-2.5 rounded-xl transition-all">
+            Subscribe
+          </button>
+        </form>
+      </div>
+
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="border-t border-slate-800/80 py-4 text-center text-slate-500 text-[11px]">
+      <p>&copy; 2026 TechSolutions. All rights reserved.</p>
+    </div>
+
+  </footer>
+
+  <!-- ==================== JAVASCRIPT LOGIC ==================== -->
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Handle Form Reset
+    function resetForm() {
+      const form = document.getElementById('contact-form');
+      form.reset();
+      
+      const alertBox = document.getElementById('form-alert');
+      alertBox.classList.add('hidden');
+    }
+
+    // Handle Form Submit Animation/Feedback
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      
+      const alertBox = document.getElementById('form-alert');
+      alertBox.className = "mb-6 p-4 rounded-xl text-xs font-medium transition-all bg-emerald-50 text-emerald-700 border border-emerald-200 block";
+      alertBox.innerHTML = "<strong>Success!</strong> Thank you for contacting us. Your message has been sent successfully.";
+      
+      // Scroll smoothly to alert if out of view
+      alertBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+      // Reset form fields after 3 seconds
+      setTimeout(() => {
+        resetForm();
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
