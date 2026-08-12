@@ -10,5 +10,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Render projects grid & setup filter event listeners
   renderProjects(portfolioDB.projects);
-  initProjectFilter(portfolioDB.projects);
+  initProjectFilter(portfolioDB.projects,"top-rated");
 });

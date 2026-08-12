@@ -5,6 +5,7 @@ export function renderProjects(projectList) {
     }
     if(projectList.length ===0){
         container.innerHTML = `<p class="col-span-full theme-text-secondary py-8">No projects found in this category.</p>`;
+        return;
     }
 
     container.innerHTML = projectList.map(project =>`
@@ -47,35 +48,40 @@ export function renderProjects(projectList) {
     </div>`).join('');
 }
 
-export function initProjectFilter(allProject){
+export function initProjectFilter(allProjects=[], defaultCategory="top-rated"){
     const filterContainer = document.getElementById("project-filters");
-    if(!filterContainer){
+    if(!filterContainer || !Array.isArray(allProjects)) {
         return;
     }
-    // console.log(filterContainer);
-
-    
-    filterContainer.addEventListener("click", (e)=>{
-        const button = e.target.closest("[data-filter]");
-        if(!button){
-            return;
-        }
-        const filterCategory = button.getAttribute("data-filter");
-        // Highlight Active Filter Button
+// apply the filter, (reusable filter helper function)
+    const applyFilter = (category) => {
         const buttons = filterContainer.querySelectorAll("[data-filter]");
-        buttons.forEach(btn => {
-            btn.className ="btn-state cursor-pointer theme-bg-card border theme-border theme-text-primary p-2 text-center font-semibold text-sm rounded-xl";
+        buttons.forEach((btn)=> {
+            const btnCategory = btn.getAttribute("data-filter");
+            if(btnCategory === category) {
+                btn.className = "btn-state cursor-pointer theme-btn-primary p-2 text-center font-semibold text-sm rounded-xl";
+            } else {
+                btn.className ="btn-state cursor-pointer theme-bg-card border theme-border theme-text-primary p-2 text-center font-semibold text-sm rounded-xl";
+            }
         });
-        button.className = "btn-state cursor-pointer theme-btn-primary p-2 text-center font-semibold text-sm rounded-xl";
 
-        // Filter Logic using Array.prototype.filter()
-        let filteredProjects =[];
-        if(filterCategory === "top-rated") {
-            filteredProjects = allProject.filter(p => p.isTopRated === true);
+        let filteredProjects = [];
+        if(category === "top-rated"){
+            filteredProjects = allProjects.filter((p)=> p.isTopRated === true);
         } else {
-            filteredProjects = allProject.filter(p=> p.category === filterCategory);
+            filteredProjects = allProjects.filter((p)=> p.category === category);
         }
-        // Re-render grid with filtered list
+
         renderProjects(filteredProjects);
-    });
+  };
+  applyFilter(defaultCategory);
+        filterContainer.addEventListener("click", (e)=>{
+            const button = e.target.closest("[data-filter]");
+            if(!button){
+                return;
+            }
+            const filterCategory = button.getAttribute("data-filter");
+            applyFilter(filterCategory);
+        })
+  
 }
