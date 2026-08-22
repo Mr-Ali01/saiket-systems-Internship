@@ -26,6 +26,8 @@ document.addEventListener('DOMContentLoaded', () => {
       localStorage.setItem('theme', isDark ? 'dark' : 'light');
       updateToggleIcon(isDark);
     });
+    console.log("why this happen");
+    
   }
 
   // Set icon state on initial load
