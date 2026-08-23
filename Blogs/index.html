@@ -593,10 +593,13 @@
       'Travel': 'bg-indigo-100 text-indigo-700',
       'Business': 'bg-amber-100 text-amber-700',
       'Health': 'bg-teal-100 text-teal-700'
+      
     };
 
     // Render Posts to DOM
     function renderPosts(filteredPosts = null) {
+      console.log("how it works");
+
       const postsContainer = document.getElementById('posts-container');
       const posts = filteredPosts || getPostsDB();
 
